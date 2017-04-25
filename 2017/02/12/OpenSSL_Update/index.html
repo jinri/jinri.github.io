@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OpenSSL升级 | gjf</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04
+查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014
+1 这里把openSSL升级到1.0.1t版本：
+123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenSSL升级">
+<meta property="og:url" content="http://www.gengjunfei.com/2017/02/12/OpenSSL_Update/index.html">
+<meta property="og:site_name" content="gjf">
+<meta property="og:description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04
+查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014
+1 这里把openSSL升级到1.0.1t版本：
+123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
+<meta property="og:updated_time" content="2017-04-25T02:57:54.478Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenSSL升级">
+<meta name="twitter:description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04
+查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014
+1 这里把openSSL升级到1.0.1t版本：
+123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
+  
+    <link rel="alternate" href="/atom.xml" title="gjf" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">gjf</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.gengjunfei.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OpenSSL_Update" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/12/OpenSSL_Update/" class="article-date">
+  <time datetime="2017-02-12T02:50:10.000Z" itemprop="datePublished">2017-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OpenSSL升级
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04</p>
+<p>查看已安装的版本信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#openssl version</div><div class="line"> OpenSSL 1.0.1g 01 Jul 2014</div></pre></td></tr></table></figure></p>
+<p>1 这里把openSSL升级到1.0.1t版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz</div><div class="line"># tar zvxf openssl-1.0.1t.tar.gz </div><div class="line"># cd openssl-1.0.1t</div><div class="line"># ls</div><div class="line"># ./config shared zlib</div><div class="line"># make</div><div class="line"># make install</div><div class="line"># /usr/local/ssh/bin/openssl version</div><div class="line"> OpenSSL 1.0.1t 3 May 2016</div></pre></td></tr></table></figure>
+<p>2 替换旧的OpenSSL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># mv /usr/bin/openssl /usr/bin/openssl-old</div><div class="line"># mv /usr/include/openssl /usr/include/openssl-old</div><div class="line"># ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl</div><div class="line"># ln -s /usr/local/ssl/include/openssl/ /usr/include/openssl</div><div class="line"># echo &quot;/usr/local/ssl/lib&quot; &gt;&gt; /etc/ld.so.conf</div><div class="line"># ldconfig </div><div class="line"># openssl version</div><div class="line"> OpenSSL 1.0.1t 3 May 2016</div></pre></td></tr></table></figure>
+<p>3 Ubuntu系统升级OpenSSL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># apt-get update</div><div class="line"># apt-get install openssl libssl</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.gengjunfei.com/2017/02/12/OpenSSL_Update/" data-id="cj1wz1ult00003kqb33tp6tbw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/11/gnosis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小重山</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/12/OpenSSL_Update/">OpenSSL升级</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/11/gnosis/">小重山</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/11/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 gjf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
