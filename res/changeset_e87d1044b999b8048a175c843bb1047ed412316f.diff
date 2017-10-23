@@ -1,0 +1,585 @@
+Index: bdwaf/bdwaf_compile.sh
+===================================================================
+--- bdwaf/bdwaf_compile.sh	(revision 72a300af6c1e818705ea8ffae8234aa518719b6c)
++++ bdwaf/bdwaf_compile.sh	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -5,4 +5,5 @@
+ # 编译 modsecurity
+ cd ${NGINX_MODULE_PATH}/modsecurity
++make clean
+ sh ./autogen.sh
+ ./configure --enable-standalone-module --disable-mlogc
+@@ -11,4 +12,5 @@
+ # 编译 Nginx
+ cd ${NGINX_MODULE_PATH}/nginx-1.8.1
++make clean
+ ./configure --prefix=/usr/local/bluedon/bdwaf \
+     --add-module=${NGINX_MODULE_PATH}/nginx-module-vts \
+@@ -20,4 +22,5 @@
+     --with-http_perl_module \
+     --with-http_sub_module \
+-    --with-http_geoip_module
++    --with-http_geoip_module \
++    --with-cust-ld-opt="-lhiredis" \
+ make
+Index: bdwaf/modsecurity/apache2/msc_logging.c
+===================================================================
+--- bdwaf/modsecurity/apache2/msc_logging.c	(revision 72a300af6c1e818705ea8ffae8234aa518719b6c)
++++ bdwaf/modsecurity/apache2/msc_logging.c	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -31,4 +31,92 @@
+ #endif
+ 
++#include <hiredis/hiredis.h>
++
++
++static __thread redisContext *g_redis_ctxt = NULL;
++int RedisPublish(modsec_rec *msr,const char *channel, const char *msg) {
++
++    if (g_redis_ctxt == NULL) {
++	g_redis_ctxt = redisConnect("127.0.0.1", 6379);
++	if (g_redis_ctxt == NULL || g_redis_ctxt->err) {
++	    if (g_redis_ctxt) {
++                msr_log(msr, 1, "Connection(127.0.0.1:6379) error: %s", g_redis_ctxt->errstr);				
++                redisFree(g_redis_ctxt);
++		} else {
++		    msr_log(msr, 1, "Connection(127.0.0.1:6379) error: can't allocate redis context");	
++		}	
++		g_redis_ctxt = NULL;
++		return -1;
++	}
++	redisEnableKeepAlive(g_redis_ctxt);
++    }
++
++    redisReply *r;
++    r = redisCommand(g_redis_ctxt, "PUBLISH %s %s", channel, msg);
++    if (r == NULL) {
++	//if redis disconnect, then reconnect
++	if(redisReconnect(g_redis_ctxt) == REDIS_ERR) {
++             msr_log(msr, 1, "Reconnect error: %s", g_redis_ctxt->errstr);
++	     redisFree(g_redis_ctxt);
++	     g_redis_ctxt = NULL;
++	     return -1;
++	}
++	
++    r = redisCommand(g_redis_ctxt, "PUBLISH %s %s", channel, msg);
++    if (r == NULL) {
++        msr_log(msr, 1, "exec command [PUBLISH %s %s] failed", channel, msg);
++	return -1;
++    }
++   }
++    freeReplyObject(r);
++	
++    return 0;
++}
++
++
++void RedisFree() {
++    if (g_redis_ctxt != NULL) {
++        redisFree(g_redis_ctxt);
++        g_redis_ctxt = NULL;
++    }
++}
++
++static char * sec_auditlog_write_ex(modsec_rec *msr,char *alldata,int finish, const char *data, unsigned int len) {
++    apr_size_t nbytes_written, nbytes = len;
++    apr_status_t rc;
++
++    /* Do nothing if there's no data. */
++    if (data == NULL) return NULL;
++
++    /* Update size counters and the hash calculation. We always do this,
++     * even in cases where write fails. That will make it easier to detect
++     * problems with partial writes.
++     */
++    msr->new_auditlog_size += len;
++    apr_md5_update(&msr->new_auditlog_md5ctx, data, len);
++
++    if(alldata==NULL)
++    {
++         alldata = apr_psprintf(msr->mp, "%s", data);
++    }
++    else
++    {
++        alldata = apr_pstrcat(msr->mp, alldata, data,NULL);
++    } 
++    
++    if(finish==1)
++    {
++        rc = RedisPublish(msr,"bdwaf",alldata);
++        if (rc) {
++            char errstr[1024];
++            msr_log(msr, 1, "Audit log: Failed writing (requested %" APR_SIZE_T_FMT
++                " bytes, written %" APR_SIZE_T_FMT "): %s", nbytes, nbytes_written,
++                apr_strerror(rc, errstr, sizeof(errstr)));
++            return NULL;
++        }
++    }
++    return alldata;
++}
++
+ /**
+  * Write the supplied data to the audit log (if the FD is ready), update
+@@ -50,8 +138,9 @@
+ 
+     /* Do not write if we do not have a file descriptor. */
+-    if (msr->new_auditlog_fd == NULL) return -1;
++    //if (msr->new_auditlog_fd == NULL) return -1;
+ 
+     /* Write data to file. */
+-    rc = apr_file_write_full(msr->new_auditlog_fd, data, nbytes, &nbytes_written);
++    //rc = apr_file_write_full(msr->new_auditlog_fd, data, nbytes, &nbytes_written);
++    rc = RedisPublish(msr,"bdwaf",data);
+     if (rc != APR_SUCCESS) {
+         char errstr[1024];
+@@ -61,4 +150,5 @@
+             apr_strerror(rc, errstr, sizeof(errstr)));
+ 
++    #if 0
+         /* Concurrent log format: don't leak file handle. */
+         if (msr->txcfg->auditlog_type == AUDITLOG_CONCURRENT) {
+@@ -75,5 +165,5 @@
+          */
+         msr->new_auditlog_fd = NULL;
+-
++    #endif
+         return -1;
+     }
+@@ -354,4 +444,34 @@
+         }
+     }
++}
++
++
++static char * sec_auditlog_write_producer_header_ex(modsec_rec *msr,char *alldata) {
++    char **signatures = NULL;
++    char *text = NULL;
++    int i;
++
++    /* Try to write everything in one go. */
++    if (msr->txcfg->component_signatures->nelts == 0) {
++        text = apr_psprintf(msr->mp, "Producer: %s.\n", MODSEC_MODULE_NAME_FULL);
++        alldata = sec_auditlog_write_ex(msr,alldata,0, text, strlen(text));
++
++        return alldata;
++    }
++
++    /* Start with the ModSecurity signature. */
++    text = apr_psprintf(msr->mp, "Producer: %s", MODSEC_MODULE_NAME_FULL);
++    alldata = sec_auditlog_write_ex(msr,alldata,0,text, strlen(text));
++
++
++    /* Then loop through the components and output individual signatures. */
++    signatures = (char **)msr->txcfg->component_signatures->elts;
++    for(i = 0; i < msr->txcfg->component_signatures->nelts; i++) {
++        text = apr_psprintf(msr->mp, "; %s", (char *)signatures[i]);
++        alldata = sec_auditlog_write_ex(msr,alldata,0,text, strlen(text));
++    }
++
++    alldata =  sec_auditlog_write_ex(msr,alldata,0, ".\n", 2);
++    return alldata;
+ }
+ 
+@@ -1535,5 +1655,5 @@
+     const apr_array_header_t *tarr_pattern = NULL;
+     const apr_table_entry_t *telts_pattern = NULL;
+-    char *str1 = NULL, *str2 = NULL, *text = NULL;
++    char *str1 = NULL, *str2 = NULL, *text = NULL,*alltext = NULL;
+     const msre_rule *rule = NULL, *next_rule = NULL;
+     apr_size_t nbytes, nbytes_written;
+@@ -1576,5 +1696,5 @@
+          */
+         apr_md5_init(&msr->new_auditlog_md5ctx);
+-
++#if 0
+         msr->new_auditlog_filename = construct_auditlog_filename(msr->mp, msr->txid);
+         if (msr->new_auditlog_filename == NULL) return;
+@@ -1627,6 +1747,7 @@
+             return;
+         }
+-    }
+-
++    #endif
++    }
++#if 0
+     /* Lock the mutex, but only if we are using serial format. */
+     if (msr->txcfg->auditlog_type != AUDITLOG_CONCURRENT) {
+@@ -1637,9 +1758,9 @@
+         }
+     }
+-
++#endif
+ 
+     /* AUDITLOG_PART_HEADER */
+     text = apr_psprintf(msr->mp, "--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_HEADER);
+-    sec_auditlog_write(msr, text, strlen(text));
++    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+     /* Format: time transaction_id remote_addr remote_port local_addr local_port */
+ 
+@@ -1647,5 +1768,5 @@
+         current_logtime(msr->mp), msr->txid, msr->remote_addr, msr->remote_port,
+         msr->local_addr, msr->local_port);
+-    sec_auditlog_write(msr, text, strlen(text));
++    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+     /* AUDITLOG_PART_REQUEST_HEADERS */
+@@ -1653,9 +1774,9 @@
+     if (strchr(msr->txcfg->auditlog_parts, AUDITLOG_PART_REQUEST_HEADERS) != NULL) {
+         text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_REQUEST_HEADERS);
+-        sec_auditlog_write(msr, text, strlen(text));
++        alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         sanitize_request_line(msr);
+-        sec_auditlog_write(msr, msr->request_line, strlen(msr->request_line));
+-        sec_auditlog_write(msr, "\n", 1);
++        alltext = sec_auditlog_write_ex(msr,alltext,0,  msr->request_line, strlen(msr->request_line));
++        alltext = sec_auditlog_write_ex(msr,alltext,0,  "\n", 1);
+ 
+ 
+@@ -1705,5 +1826,5 @@
+                 }
+             }
+-            sec_auditlog_write(msr, text, strlen(text));
++            alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+     }
+@@ -1794,5 +1915,5 @@
+                 unsigned int sanitize_length = 0;
+                 text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_REQUEST_BODY);
+-                sec_auditlog_write(msr, text, strlen(text));
++                alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+                 for(;;) {
+@@ -1853,5 +1974,5 @@
+                         /* Write the sanitized chunk to the log
+                          * and advance to the next chunk. */
+-                        sec_auditlog_write(msr, chunk->data, chunk->length);
++                        alltext = sec_auditlog_write_ex(msr,alltext,0,  chunk->data, chunk->length);
+                         chunk_offset += chunk->length;
+                     }
+@@ -1882,6 +2003,6 @@
+             } else {
+                 text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_FAKE_REQUEST_BODY);
+-                sec_auditlog_write(msr, text, strlen(text));
+-                sec_auditlog_write(msr, buffer, strlen(buffer));
++                alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
++                alltext = sec_auditlog_write_ex(msr,alltext,0,  buffer, strlen(buffer));
+             }
+         }
+@@ -1892,5 +2013,5 @@
+     if (strchr(msr->txcfg->auditlog_parts, AUDITLOG_PART_A_RESPONSE_HEADERS) != NULL) {
+         text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_A_RESPONSE_HEADERS);
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         /* There are no response headers (or the status line) in HTTP 0.9 */
+@@ -1903,5 +2024,5 @@
+                         msr->response_status);
+             }
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+             /* Output headers */
+@@ -1953,5 +2074,5 @@
+                     }
+                 }
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+         }
+@@ -1965,6 +2086,6 @@
+         if (msr->resbody_data != NULL) {
+             text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_RESPONSE_BODY);
+-            sec_auditlog_write(msr, text, strlen(text));
+-            sec_auditlog_write(msr, msr->resbody_data, msr->resbody_length);
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
++            alltext = sec_auditlog_write_ex(msr,alltext,0,  msr->resbody_data, msr->resbody_length);            
+             wrote_response_body = 1;
+         }
+@@ -1976,10 +2097,10 @@
+         apr_time_t now = apr_time_now();
+         text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_TRAILER);
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         /* Messages */
+         for(i = 0; i < msr->alerts->nelts; i++) {
+             text = apr_psprintf(msr->mp, "Message: %s\n", ((char **)msr->alerts->elts)[i]);
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -1989,5 +2110,5 @@
+             text = apr_psprintf(msr->mp, "Apache-Error: %s\n",
+                 format_error_log_message(msr->mp, em));
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -1995,5 +2116,5 @@
+         if (msr->was_intercepted) {
+             text = apr_psprintf(msr->mp, "Action: Intercepted (phase %d)\n", msr->intercept_phase);
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2001,5 +2122,5 @@
+         if (msr->r->handler != NULL) {
+             text = apr_psprintf(msr->mp, "Apache-Handler: %s\n", msr->r->handler);
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2007,5 +2128,5 @@
+         text = apr_psprintf(msr->mp, "Stopwatch: %" APR_TIME_T_FMT " %" APR_TIME_T_FMT " (- - -)\n",
+             msr->request_time, (now - msr->request_time));
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         /* Stopwatch2 */
+@@ -2015,5 +2136,5 @@
+             text = apr_psprintf(msr->mp, "Stopwatch2: %" APR_TIME_T_FMT " %" APR_TIME_T_FMT
+                 "; %s\n", msr->request_time, (now - msr->request_time), perf_all);
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2023,13 +2144,13 @@
+         if (wrote_response_body) {
+             text = apr_psprintf(msr->mp, "Response-Body-Transformed: Dechunked\n");
+-            sec_auditlog_write(msr, text, strlen(text));
+-        }
+-
+-        sec_auditlog_write_producer_header(msr);
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
++        }
++
++	alltext = sec_auditlog_write_producer_header_ex(msr,alltext);
+ 
+         /* Server */
+         if (msr->server_software != NULL) {
+             text = apr_psprintf(msr->mp, "Server: %s\n", msr->server_software);
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2044,5 +2165,5 @@
+             if (tarr->nelts > 0) {
+                 text = apr_psprintf(msr->mp, "Sanitised-Args: ");
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+ 
+@@ -2051,5 +2172,5 @@
+                 text = apr_psprintf(msr->mp, "%s\"%s\"%s", ((i == 0) ? "" : ", "),
+                     log_escape(msr->mp, arg->name), ((i == (tarr->nelts - 1)) ? ".\n" : ""));
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+         }
+@@ -2065,5 +2186,5 @@
+             if (tarr->nelts > 0) {
+                 text = apr_psprintf(msr->mp, "Sanitised-Request-Headers: ");
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+ 
+@@ -2071,5 +2192,5 @@
+                 text = apr_psprintf(msr->mp, "%s\"%s\"%s", ((i == 0) ? "" : ", "),
+                     log_escape(msr->mp, telts[i].key), ((i == (tarr->nelts - 1)) ? ".\n" : ""));
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+         }
+@@ -2085,5 +2206,5 @@
+             if (tarr->nelts > 0) {
+                 text = apr_psprintf(msr->mp, "Sanitised-Response-Headers: ");
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+ 
+@@ -2091,5 +2212,5 @@
+                 text = apr_psprintf(msr->mp, "%s\"%s\"%s", ((i == 0) ? "" : ", "),
+                     log_escape(msr->mp, telts[i].key), ((i == (tarr->nelts - 1)) ? ".\n" : ""));
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+         }
+@@ -2103,5 +2224,5 @@
+                 msr->sessionid == NULL ? "-" : log_escape(msr->mp, msr->sessionid),
+                 msr->userid == NULL ? "-" : log_escape(msr->mp, msr->userid));
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2110,5 +2231,5 @@
+             text = apr_psprintf(msr->mp, "Sensor-Id: \"%s\"\n",
+                 msr->txcfg->sensor_id == NULL ? "-" : log_escape(msr->mp, msr->txcfg->sensor_id)),
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2117,5 +2238,5 @@
+             text = apr_psprintf(msr->mp, "Engine-Mode: \"%s\"\n",
+                 msr->txcfg->is_enabled == 1 ? "DETECTION_ONLY" : "ENABLED"),
+-            sec_auditlog_write(msr, text, strlen(text));
++	    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+         }
+ 
+@@ -2130,5 +2251,5 @@
+             if (tarr->nelts > 0) {
+                 text = apr_psprintf(msr->mp, "Rules-Performance-Info: ");
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+ 
+@@ -2136,5 +2257,5 @@
+                 text = apr_psprintf(msr->mp, "%s\"%s=%s\"%s", ((i == 0) ? "" : ", "),
+                     log_escape(msr->mp, telts[i].key), log_escape(msr->mp, telts[i].val), ((i == (tarr->nelts - 1)) ? ".\n" : ""));
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             }
+         }
+@@ -2148,5 +2269,5 @@
+ 
+         text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_UPLOADS);
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         parts = (multipart_part **)msr->mpd->parts->elts;
+@@ -2155,5 +2276,5 @@
+                 if(parts[cfiles]->filename != NULL) {
+                     text = apr_psprintf(msr->mp, "%d,%u,\"%s\",\"%s\"\n", cfiles+1, parts[cfiles]->tmp_file_size, log_escape(msr->mp, parts[cfiles]->filename), log_escape(msr->mp, parts[cfiles]->content_type ? parts[cfiles]->content_type : "<Unknown ContentType>"));
+-                    sec_auditlog_write(msr, text, strlen(text));
++		    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+                     total_size += parts[cfiles]->tmp_file_size;
+                 }
+@@ -2161,5 +2282,5 @@
+         }
+         text = apr_psprintf(msr->mp, "Total,%u\n", total_size);
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+     }
+ 
+@@ -2168,5 +2289,5 @@
+     if (strchr(msr->txcfg->auditlog_parts, AUDITLOG_PART_MATCHEDRULES) != NULL) {
+         text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_MATCHEDRULES);
+-        sec_auditlog_write(msr, text, strlen(text));
++	alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+ 
+         /* Matched Rules */
+@@ -2176,5 +2297,5 @@
+             if ((rule != NULL) && (rule->actionset != NULL) && rule->actionset->is_chained && (rule->chain_starter == NULL)) {
+                 text = apr_psprintf(msr->mp, "%s\n", rule->unparsed);
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+                 do {
+                     if (rule->ruleset != NULL)   {
+@@ -2192,5 +2313,5 @@
+                                 i++;
+                             }
+-                            sec_auditlog_write(msr, text, strlen(text));
++			    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+                         }
+                     }
+@@ -2198,9 +2319,9 @@
+                 } while (rule != NULL && rule->actionset != NULL && rule->actionset->is_chained);
+                 text = apr_psprintf(msr->mp, "\n");
+-                sec_auditlog_write(msr, text, strlen(text));
++		alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+             } else  {
+                 if ((rule != NULL) && (rule->actionset != NULL) && !rule->actionset->is_chained && (rule->chain_starter == NULL)) {
+                     text = apr_psprintf(msr->mp, "%s\n\n", rule->unparsed);
+-                    sec_auditlog_write(msr, text, strlen(text));
++		    alltext = sec_auditlog_write_ex(msr,alltext,0,  text, strlen(text));
+                 }
+             }
+@@ -2209,5 +2330,5 @@
+     /* AUDITLOG_PART_ENDMARKER */
+     text = apr_psprintf(msr->mp, "\n--%s-%c--\n", msr->new_auditlog_boundary, AUDITLOG_PART_ENDMARKER);
+-    sec_auditlog_write(msr, text, strlen(text));
++    alltext = sec_auditlog_write_ex(msr,alltext,1, text, strlen(text));
+ 
+     /* Return here if we were writing to a serial log
+@@ -2215,6 +2336,6 @@
+      */
+     if (msr->txcfg->auditlog_type != AUDITLOG_CONCURRENT) {
+-        sec_auditlog_write(msr, "\n", 1);
+-
++       //alltext = sec_auditlog_write_ex(msr,alltext,0,  "\n", 1);
++#if 0
+         /* Unlock the mutex we used to serialise access to the audit log file. */
+         rc = apr_global_mutex_unlock(msr->modsecurity->auditlog_lock);
+@@ -2223,15 +2344,15 @@
+                     get_apr_error(msr->mp, rc));
+         }
+-
++#endif
+         return;
+     }
+ 
+     /* From here on only concurrent-style processing. */
+-
++#if 0
+     /* File handle might already be closed after write failure. */
+     if (msr->new_auditlog_fd) {
+         apr_file_close(msr->new_auditlog_fd);
+     }
+-
++#endif
+     /* Write an entry to the index file */
+ 
+Index: bdwaf/modsecurity/apache2/msc_logging.h
+===================================================================
+--- bdwaf/modsecurity/apache2/msc_logging.h	(revision 72a300af6c1e818705ea8ffae8234aa518719b6c)
++++ bdwaf/modsecurity/apache2/msc_logging.h	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -52,3 +52,7 @@
+ void DSOLOCAL sec_audit_logger(modsec_rec *msr);
+ 
++int RedisPublish(modsec_rec *msr,const char *channel, const char *msg);
++
++void RedisFree();
++
+ #endif
+Index: bdwaf/modsecurity/standalone/api.c
+===================================================================
+--- bdwaf/modsecurity/standalone/api.c	(revision e2f4d96198e1a62fc11f91619d9aee7c9932d356)
++++ bdwaf/modsecurity/standalone/api.c	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -273,4 +273,5 @@
+     pool = NULL;
+     apr_terminate();
++    RedisFree();
+ }
+ 
+Index: bdwaf/nginx-1.8.1/auto/make
+===================================================================
+--- bdwaf/nginx-1.8.1/auto/make	(revision 72a300af6c1e818705ea8ffae8234aa518719b6c)
++++ bdwaf/nginx-1.8.1/auto/make	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -185,5 +185,6 @@
+ ngx_link=${CORE_LINK:+`echo $CORE_LINK \
+     | sed -e "s/\//$ngx_regex_dirsep/g" -e "s/^/$ngx_long_regex_cont/"`}
+-
++#add by gjf
++ngx_link="$ngx_link $NGX_CUST_LD_OPT"
+ 
+ cat << END                                                    >> $NGX_MAKEFILE
+Index: bdwaf/nginx-1.8.1/auto/options
+===================================================================
+--- bdwaf/nginx-1.8.1/auto/options	(revision 72a300af6c1e818705ea8ffae8234aa518719b6c)
++++ bdwaf/nginx-1.8.1/auto/options	(revision e87d1044b999b8048a175c843bb1047ed412316f)
+@@ -24,4 +24,5 @@
+ NGX_CC_OPT=
+ NGX_LD_OPT=
++NGX_CUST_LD_OPT=
+ CPU=NO
+ 
+@@ -283,4 +284,5 @@
+         --with-cc-opt=*)                 NGX_CC_OPT="$value"        ;;
+         --with-ld-opt=*)                 NGX_LD_OPT="$value"        ;;
++	--with-cust-ld-opt=*)            NGX_CUST_LD_OPT="$value"   ;;
+         --with-cpu-opt=*)                CPU="$value"               ;;
+         --with-debug)                    NGX_DEBUG=YES              ;;
+@@ -442,4 +444,5 @@
+   --with-cc-opt=OPTIONS              set additional C compiler options
+   --with-ld-opt=OPTIONS              set additional linker options
++  --with-cust-ld-opt=OPTIONS         set custom  linker options at last
+   --with-cpu-opt=CPU                 build for the specified CPU, valid values:
+                                      pentium, pentiumpro, pentium3, pentium4,
