@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OpenSSL升级 | Hexo</title>
+  <title>Hello World | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04 查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014 1 这里把openSSL升级到1.0.1t版本： 123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenSSL升级">
-<meta property="og:url" content="http://yoursite.com/2017/02/12/OpenSSL_Update/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2017/10/28/hello-world/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04 查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014 1 这里把openSSL升级到1.0.1t版本： 123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
-<meta property="og:updated_time" content="2017-04-25T02:57:54.000Z">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:updated_time" content="2017-10-28T08:52:10.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenSSL升级">
-<meta name="twitter:description" content="升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04 查看已安装的版本信息：12#openssl version OpenSSL 1.0.1g 01 Jul 2014 1 这里把openSSL升级到1.0.1t版本： 123456789# wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz# tar zvxf o">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -63,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-OpenSSL_Update" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/12/OpenSSL_Update/" class="article-date">
-  <time datetime="2017-02-12T02:50:10.000Z" itemprop="datePublished">2017-02-12</time>
+    <a href="/2017/10/28/hello-world/" class="article-date">
+  <time datetime="2017-10-28T08:52:10.798Z" itemprop="datePublished">2017-10-28</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      OpenSSL升级
+      Hello World
     </h1>
   
 
@@ -85,19 +85,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 升级版本为OpenSSL-1.0.1t,操作系统为ubuntu12.04</p>
-<p>查看已安装的版本信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#openssl version</div><div class="line"> OpenSSL 1.0.1g 01 Jul 2014</div></pre></td></tr></table></figure></p>
-<p>1 这里把openSSL升级到1.0.1t版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz</div><div class="line"># tar zvxf openssl-1.0.1t.tar.gz </div><div class="line"># cd openssl-1.0.1t</div><div class="line"># ls</div><div class="line"># ./config shared zlib</div><div class="line"># make</div><div class="line"># make install</div><div class="line"># /usr/local/ssh/bin/openssl version</div><div class="line"> OpenSSL 1.0.1t 3 May 2016</div></pre></td></tr></table></figure>
-<p>2 替换旧的OpenSSL：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># mv /usr/bin/openssl /usr/bin/openssl-old</div><div class="line"># mv /usr/include/openssl /usr/include/openssl-old</div><div class="line"># ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl</div><div class="line"># ln -s /usr/local/ssl/include/openssl/ /usr/include/openssl</div><div class="line"># echo &quot;/usr/local/ssl/lib&quot; &gt;&gt; /etc/ld.so.conf</div><div class="line"># ldconfig </div><div class="line"># openssl version</div><div class="line"> OpenSSL 1.0.1t 3 May 2016</div></pre></td></tr></table></figure>
-<p>3 Ubuntu系统升级OpenSSL：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># apt-get update</div><div class="line"># apt-get install openssl libssl</div></pre></td></tr></table></figure>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/12/OpenSSL_Update/" data-id="cj9e65fz70003ycglbm6939v0" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/28/hello-world/" data-id="cj9b3bv8j0000vwglg460jvt0" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -106,19 +107,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/17/vi_openssl_err/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          vim打开报openssl error 错误
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/11/gnosis/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/24/如何取消vim的智能缩进/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">小重山</div>
+      <div class="article-nav-title">如何取消vim的智能缩进</div>
     </a>
   
 </nav>
