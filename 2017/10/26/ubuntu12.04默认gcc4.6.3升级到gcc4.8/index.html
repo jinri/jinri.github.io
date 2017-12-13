@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="nginx配置http为1.0到1.1，主要是为了长连接有效。 对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。12345678910111213141516upstream http_backend &amp;#123;    server 127.0.0.1:8080;    keepalive 16;&amp;#125;serve">
+<meta name="description" content="123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx配置http为1.0到1.1">
-<meta property="og:url" content="http://www.gengjunfei.com/2017/10/28/nginx配置http为1.0到1.1/index.html">
+<meta property="og:title" content="ubuntu12.04默认gcc4.6.3升级到gcc4.8">
+<meta property="og:url" content="http://www.gengjunfei.com/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/index.html">
 <meta property="og:site_name" content="gjf">
-<meta property="og:description" content="nginx配置http为1.0到1.1，主要是为了长连接有效。 对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。12345678910111213141516upstream http_backend &amp;#123;    server 127.0.0.1:8080;    keepalive 16;&amp;#125;serve">
+<meta property="og:description" content="123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-10T02:15:53.712Z">
+<meta property="og:updated_time" content="2017-12-13T06:48:09.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx配置http为1.0到1.1">
-<meta name="twitter:description" content="nginx配置http为1.0到1.1，主要是为了长连接有效。 对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。12345678910111213141516upstream http_backend &amp;#123;    server 127.0.0.1:8080;    keepalive 16;&amp;#125;serve">
+<meta name="twitter:title" content="ubuntu12.04默认gcc4.6.3升级到gcc4.8">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://www.gengjunfei.com/2017/10/28/nginx配置http为1.0到1.1/"/>
+  <link rel="canonical" href="http://www.gengjunfei.com/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/"/>
 
 
 
 
 
-  <title>nginx配置http为1.0到1.1 | gjf</title>
+  <title>ubuntu12.04默认gcc4.6.3升级到gcc4.8 | gjf</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/28/nginx配置http为1.0到1.1/">
+    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="gjf">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nginx配置http为1.0到1.1</h1>
+          <h1 class="post-title" itemprop="name headline">ubuntu12.04默认gcc4.6.3升级到gcc4.8</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T22:00:10+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T22:00:10+08:00">
+                2017-10-26
               </time>
             
 
@@ -299,9 +299,7 @@
       
 
       
-        <p>nginx配置http为1.0到1.1，主要是为了长连接有效。</p>
-<p>对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">upstream http_backend &#123;</div><div class="line">    server 127.0.0.1:8080;</div><div class="line"></div><div class="line">    keepalive 16;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">    ...</div><div class="line"></div><div class="line">    location /http/ &#123;</div><div class="line">        proxy_pass http://http_backend;</div><div class="line">        proxy_http_version 1.1;</div><div class="line">        proxy_set_header Connection &quot;&quot;;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>引用 <a href="http://nginx.org/cn/docs/http/ngx_http_upstream_module.html#keepalive" target="_blank" rel="external">http://nginx.org/cn/docs/http/ngx_http_upstream_module.html#keepalive</a></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconf</div><div class="line"></div><div class="line">apt-get install python-software-properties -y</div><div class="line">apt-get install software-properties-common -y</div><div class="line">add-apt-repository ppa:ubuntu-toolchain-r/test</div><div class="line"></div><div class="line">apt-get update</div><div class="line">apt-get install gcc-4.8 g++-4.8</div><div class="line">#apt-get install gcc-4.8-multilib g++-4.8-multilib gcc-4.8-doc</div><div class="line"></div><div class="line">#update-alternatives --remove-all gcc </div><div class="line">#update-alternatives --remove-all g++</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20</div><div class="line"></div><div class="line">update-alternatives --config gcc</div><div class="line"></div><div class="line">update-alternatives --config g++</div><div class="line"></div><div class="line">gcc --version</div><div class="line"></div><div class="line">#apt-get update</div><div class="line">#apt-get upgrade -y </div><div class="line">#apt-get dist-upgrade</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -326,8 +324,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/数字证书文件cer和pfx的区别/" rel="next" title="数字证书文件cer和pfx的区别">
-                <i class="fa fa-chevron-left"></i> 数字证书文件cer和pfx的区别
+              <a href="/2017/10/26/arp静态绑定/" rel="next" title="arp静态绑定">
+                <i class="fa fa-chevron-left"></i> arp静态绑定
               </a>
             
           </div>
@@ -336,8 +334,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/29/我的vim设置/" rel="prev" title="我的vim配置">
-                我的vim配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/27/数字证书文件cer和pfx的区别/" rel="prev" title="数字证书文件cer和pfx的区别">
+                数字证书文件cer和pfx的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
