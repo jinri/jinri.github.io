@@ -1,1865 +1,658 @@
 <!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
 
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="每个不曾起舞的日子 都是对生命的辜负">
-<meta property="og:type" content="website">
-<meta property="og:title" content="gjf">
-<meta property="og:url" content="http://www.gengjunfei.com/index.html">
-<meta property="og:site_name" content="gjf">
-<meta property="og:description" content="每个不曾起舞的日子 都是对生命的辜负">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gjf">
-<meta name="twitter:description" content="每个不曾起舞的日子 都是对生命的辜负">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://www.gengjunfei.com/"/>
-
-
-
-
-
   <title>gjf</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="gjf">
+    <meta name="author" content="gjf">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="gjf" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
   
 
-
-
-
-
-
-
-
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--
+<body class="home-template">
+-->
+<body id="index" class="lightnav animsition">
 
-  
-  
-    
-  
+      <!-- ============================ Off-canvas navigation =========================== -->
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">gjf</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/29/我的vim设置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/29/我的vim设置/" itemprop="url">我的vim配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T22:00:10+08:00">
-                2017-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">set nocompatible         &quot;关闭 vi 兼容模式                                                                                </div><div class="line">syntax on                &quot;自动语法高亮      </div><div class="line">set number               &quot;显示行号                                                                                        </div><div class="line"> &quot;set autoindent           &quot;vim使用自动对齐，也就是把当前行的对齐格式应用到下一行(自动缩进）                               </div><div class="line"> &quot;set cindent              &quot;cindent是特别针对 C语言语法自动缩进                                                            </div><div class="line"> &quot;set smartindent          &quot;依据上面的对齐格式，智能的选择对齐方式，对于类似C语言编写上有用                                </div><div class="line"> &quot;set ai                   &quot;设置自动缩进                                                                                   </div><div class="line"> &quot;set cursorline          &quot;为光标所在行加下划线                                                                            </div><div class="line">set laststatus=2         &quot;总是显示状态行                                                                                        </div><div class="line">set shiftwidth=4         &quot;设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4                                                              </div><div class="line">set tabstop=4            &quot;设定 tab 长度为 4                                                                                     </div><div class="line">set softtabstop=4        &quot;使得按退格键时可以一次删掉 4 个空格                                                             </div><div class="line">set autoread             &quot;文件在Vim之外修改过，自动重新读入                                                                     </div><div class="line">set ignorecase smartcase &quot;搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感                                  </div><div class="line">set incsearch            &quot;输入搜索内容时就显示搜索结果                                                                          </div><div class="line">set hlsearch             &quot;搜索时高亮显示被找到的文本                                                                      </div><div class="line">set showmatch            &quot;设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号      </div><div class="line">set history=1000         &quot;记录历史的行数                                                                                  </div><div class="line">set ruler                &quot;在编辑过程中，在右下角显示光标位置的状态行                                                            </div><div class="line">set nohls                &quot;默认情况下，寻找匹配是高亮度显示，该设置关闭高亮显示                                            </div><div class="line">set incsearch            &quot;在程序中查询一单词，自动匹配单词的位置；如查询desk单词，当输到/d时，会自动找到第一个d开头的单词  </div><div class="line">set backspace=2          &quot;设置退格键可用                                                                                  </div><div class="line">set helplang=cn          &quot;帮助系统设置为中文                                                                                    </div><div class="line">&quot;set foldmethod=syntax    &quot;代码折叠      </div><div class="line">set encoding=utf-8       &quot;设置字符编码                                                                                    </div><div class="line">set termencoding=utf-8                                                                                                    </div><div class="line">set fileencoding=utf-8                                                                                                    </div><div class="line">set fileencodings=utf-8,gbk</div></pre></td></tr></table></figure>
-
-          
-        
-      
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">technic</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">art</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.gengjunfei.com/" class="animsition-link">gjf</a></li>
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
     </div>
     
-    
-    
+    <!-- ============================ END Off-canvas navigation =========================== -->
 
-    
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
 
-    
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
 
-    
+        <!-- ============================ Header & Logo bar =========================== -->
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/28/nginx配置http为1.0到1.1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/nginx配置http为1.0到1.1/" itemprop="url">nginx配置http为1.0到1.1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T22:00:10+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">gjf</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
         </div>
-      </header>
-    
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>nginx配置http为1.0到1.1，主要是为了长连接有效。</p>
-<p>对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">upstream http_backend &#123;</div><div class="line">    server 127.0.0.1:8080;</div><div class="line"></div><div class="line">    keepalive 16;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">    ...</div><div class="line"></div><div class="line">    location /http/ &#123;</div><div class="line">        proxy_pass http://http_backend;</div><div class="line">        proxy_http_version 1.1;</div><div class="line">        proxy_set_header Connection &quot;&quot;;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>引用 <a href="http://nginx.org/cn/docs/http/ngx_http_upstream_module.html#keepalive" target="_blank" rel="external">http://nginx.org/cn/docs/http/ngx_http_upstream_module.html#keepalive</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+        <!-- ============================ Header & Logo bar =========================== -->
 
 
-    
-      
+      <!-- ============================ Hero Image =========================== -->
 
-  
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+                        
 
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/27/数字证书文件cer和pfx的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/27/数字证书文件cer和pfx的区别/" itemprop="url">数字证书文件cer和pfx的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T22:00:10+08:00">
-                2017-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+                    </div>
+                </div>
+            </div>
+            <!-- // .col-md-12 -->
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>作为文件形式存在的证书一般有这几种格式：</p>
-<ol>
-<li>带有私钥的证书</li>
-</ol>
-<ul>
-<li>由Public Key Cryptography Standards #12，PKCS#12标准定义，包含了公钥和私钥的二进制格式的证书形式，以pfx作为证书文件后缀名。</li>
-</ul>
-<ol>
-<li>二进制编码的证书</li>
-</ol>
-<ul>
-<li>证书中没有私钥，DER 编码二进制格式的证书文件，以cer作为证书文件后缀名。</li>
-</ul>
-<ol>
-<li>Base64编码的证书</li>
-</ol>
-<ul>
-<li>证书中没有私钥，BASE64 编码格式的证书文件，也是以cer作为证书文件后缀名。</li>
-</ul>
-<p>由定义可以看出，只有pfx格式的数字证书是包含有私钥的，cer格式的数字证书里面只有公钥没有私钥。</p>
-<hr>
-<ul>
-<li>在pfx证书的导入过程中有一项是“标志此密钥是可导出的。这将您在稍候备份或传输密钥”。一般是不选中的，如果选中，别人就有机会备份你的密钥了。如果是不选中，其实密钥也导入了，只是不能再次被导出。这就保证了密钥的安全。</li>
-<li>如果导入过程中没有选中这一项，做证书备份时“导出私钥”这一项是灰色的，不能选。只能导出cer格式的公钥。如果导入时选中该项，则在导出时“导出私钥”这一项就是可选的。</li>
-<li>如果要导出私钥（pfx),是需要输入密码的，这个密码就是对私钥再次加密，这样 就保证了私钥的安全，别人即使拿到了你的证书备份（pfx),不知道加密私钥的密码，也是无法导入证书的。相反，如果只是导入导出cer格式的证书，是不 会提示你输入密码的。因为公钥一般来说是对外公开的，不用加密<br>的。因为公钥一般来说是对外公开的，不用加密。</li>
-</ul>
-
-          
-        
-      
+        <div class="herofade beige-dk"></div>
     </div>
-    
-    
-    
+</section>
 
-    
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
-    
+<!-- ============================ END Hero Image =========================== -->
+<!-- ============================ Content =========================== -->
 
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
+<section id="intro">
+    <div class="container">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/" itemprop="url">ubuntu12.04默认gcc4.6.3升级到gcc4.8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T22:00:10+08:00">
-                2017-10-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconf</div><div class="line"></div><div class="line">apt-get install python-software-properties -y</div><div class="line">apt-get install software-properties-common -y</div><div class="line">add-apt-repository ppa:ubuntu-toolchain-r/test</div><div class="line"></div><div class="line">apt-get update</div><div class="line">apt-get install gcc-4.8 g++-4.8</div><div class="line">#apt-get install gcc-4.8-multilib g++-4.8-multilib gcc-4.8-doc</div><div class="line"></div><div class="line">#update-alternatives --remove-all gcc </div><div class="line">#update-alternatives --remove-all g++</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20</div><div class="line"></div><div class="line">update-alternatives --config gcc</div><div class="line"></div><div class="line">update-alternatives --config g++</div><div class="line"></div><div class="line">gcc --version</div><div class="line"></div><div class="line">#apt-get update</div><div class="line">#apt-get upgrade -y </div><div class="line">#apt-get dist-upgrade</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/26/arp静态绑定/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/26/arp静态绑定/" itemprop="url">arp静态绑定</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T22:00:10+08:00">
-                2017-10-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>Windows的命令提示符下，键入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipconfig /all</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>查看一下本机电脑的IP地址信息，还能看到网关及DNS信息。</p>
-<ul>
-<li>在DOS命令提示符下输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arp -a</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>来获取网关（即路由器）的IP地址和MAC地址。</p>
-<ul>
-<li>针对WindowXP用户，其操作方法是在DOS命令提示符下输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arp -s 192.168.1.1  00-19-e0-aa-9b-e4</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>即可实现邦定。</p>
-<ul>
-<li>对于Windows7用户来说，实现方面为在DOS命令提示符下输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netsh interface ipv4 show interface</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>回车，查看你电脑所有网卡的idx，然后从中确定你要进行邦定的idx,在本机网络环境中我们需要进行邦定的idx为11，然后输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netsh interface ipv4 set neighbors 11 192.168.1.1 00-19-e0-aa-9b-e4</div></pre></td></tr></table></figure></p>
-<p>实现静态邦定。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/24/如何取消vim的智能缩进/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/24/如何取消vim的智能缩进/" itemprop="url">如何取消vim的智能缩进</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T22:00:10+08:00">
-                2017-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><em>vim的自动缩进是光标换到下一行后自动与上一行的缩进对齐，而智能缩进是换到下一行后光标在与上一行缩进对齐的情况下又往里缩进了一次，怎么取消它的智能缩进？</em></p>
-<ul>
-<li><p>解决方案：切换到paste模式。</p>
-<p>在粘贴数据之前，输入下面指定开启paste模式</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set paste</div></pre></td></tr></table></figure>
-<p>粘贴完毕后，输入下面指定关闭paste模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set nopaste</div></pre></td></tr></table></figure></p>
-<p>每次都需要输入很麻烦，那么也可以在.vimrc中加入下面内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set pastetoggle=&lt;F3&gt;</div></pre></td></tr></table></figure>
-<p>这样就可以用F3来切换。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/10/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/23/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T10:44:13+08:00">
-                2017-10-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/09/24/nginx 104 Connection reset by peer 问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/24/nginx 104 Connection reset by peer 问题/" itemprop="url">nginx 104 Connection reset by peer 问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T10:00:10+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="nginx-报-“recv-failed-104-Connection-reset-by-peer-”问题排查"><a href="#nginx-报-“recv-failed-104-Connection-reset-by-peer-”问题排查" class="headerlink" title="nginx 报 “recv() failed (104: Connection reset by peer)”问题排查"></a>nginx 报 “recv() failed (104: Connection reset by peer)”问题排查</h3><p>现象：nginx在加入<a href="https://github.com/yaoweibin/nginx_upstream_check_module" target="_blank" rel="external">nginx_upstream_check_module</a>健康检查模块后error.log中经常出现recv() failed (104: Connection reset by peer)错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2378:2017/09/12 14:57:40 [error] 34722#0: recv() failed (104: Connection reset by peer)</div></pre></td></tr></table></figure>
-<ul>
-<li>1 刚开始怀疑是加入的模块中报的这个错误，经查找源码，该模块中并无该错误日志片段。<br>经打开和关闭iptables，已排除是iptables的影响<br>经调整/etc/sysctl.conf 一些内核参数，已排除是本机内核参数的影响。<br>经调整/etc/php5/fpm/php-fpm.conf php的一些配置参数，已排除php参数设置的影响<br>经调整健康检查模块的发包频率，已排除发包频率的影响</li>
-</ul>
-<p>该模块中有该错误产生：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[error] 25592#0: enable check peer: 47.90.36.208:443</div></pre></td></tr></table></figure>
-<p> （错误含义：对该ip启动健康检查），属于该模块的正常日志报错，在满足某种条件下才会产生（服务器初始为down，在该模块检查超过成功检查配置次数后，标记该服务器为up），<br>类似的还有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[error] 41689#0: disable check peer: 47.90.36.208:443   （服务器初始为up，一般在该模块检查超过失败检查配置次数后，标记该服务器为down）   </div><div class="line">[error] 41689#0: check time out with peer: 14.215.9.85:443 （检查超时时产生）</div></pre></td></tr></table></figure>
-<ul>
-<li>2 .接着查找104的错误，猜想应该在nginx源码中有这类错误，经查找和调试，定位到该错误出现在：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Breakpoint 1, ngx_unix_recv (c=0x7fffd00874c0, buf=0x7fffffffd210 &quot;\220\006&quot;, size=4096) at src/os/unix/ngx_recv.c:136</div><div class="line">136         rev = c-&gt;read;</div><div class="line">(gdb) p errno</div><div class="line">$1 = 11</div><div class="line">(gdb) watch errno</div><div class="line">Hardware watchpoint 2: errno</div><div class="line">(gdb) n</div><div class="line">139             n = recv(c-&gt;fd, buf, size, 0);</div><div class="line">(gdb) </div><div class="line">Hardware watchpoint 2: errno</div><div class="line"></div><div class="line">Old value = 11</div><div class="line">New value = 104</div><div class="line"></div><div class="line">函数原型：ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)</div></pre></td></tr></table></figure>
-<p>该函数读取tcp链接对端发送过来的数据 这里n返回-1，根据该函数的解释： These calls return the number of bytes received, or -1 if an error occurred. 表示读数据时发生一个错误。</p>
-<p>在nginx中，当err不为 NGX_EAGAIN ，NGX_EINTR 这两种状态则认为出错，并打印出错误码，该错误码为linux系统错误码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if (err == NGX_EAGAIN || err == NGX_EINTR) &#123;  //这两种情况 ,需要继续读</div><div class="line">            </div><div class="line">            ngx_log_debug0(NGX_LOG_DEBUG_EVENT, c-&gt;log, err,</div><div class="line">                           &quot;recv() not ready&quot;); //recv() not ready (11: Resource temporarily unavailable)</div><div class="line">            n = NGX_AGAIN; //返回这个表示内核数据已有的数据已经读取完，需要重新add epoll event来触发新数据epoll返回</div><div class="line"></div><div class="line">        &#125; else &#123;//TCP连接出错了</div><div class="line">            n = ngx_connection_error(c, err, &quot;recv() failed&quot;);</div><div class="line">            break;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>3 尽管报错地方已找到，但显然./os/unix/ngx_recv.c这个地方是供其它地方调用，什么情况下产生该错误及为什么产生该错误依然需要探究<br>在报错的时候查看调用栈信息：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">0x00007ffff7bcb813 in recv () from /lib/x86_64-linux-gnu/libpthread.so.0</div><div class="line">(gdb) bt</div><div class="line">#0  0x00007ffff7bcb813 in recv () from /lib/x86_64-linux-gnu/libpthread.so.0</div><div class="line">#1  0x0000000000445706 in ngx_unix_recv (c=0x7fffd00874c0, buf=0x7fffffffd210 &quot;\220\006&quot;, size=4096) at src/os/unix/ngx_recv.c:139</div><div class="line">#2  0x000000000051295d in ngx_http_upstream_check_discard_handler (event=0x7fffcf65e218)</div><div class="line">    at /home/gjf/cloudfence/bdwaf/nginx_upstream_check_module/ngx_http_upstream_check_module.c:1233</div><div class="line">#3  0x000000000044c3c8 in ngx_epoll_process_events (cycle=0x133da80, timer=2500, flags=1) at src/event/modules/ngx_epoll_module.c:822</div><div class="line">#4  0x000000000043ed17 in ngx_process_events_and_timers (cycle=0x133da80) at src/event/ngx_event.c:248</div><div class="line">#5  0x00000000004492ce in ngx_single_process_cycle (cycle=0x133da80) at src/os/unix/ngx_process_cycle.c:308</div><div class="line">#6  0x0000000000418cfb in main (argc=1, argv=0x7fffffffe628) at src/core/nginx.c:416</div></pre></td></tr></table></figure>
-<p>发现的确有ngx_http_upstream_check模块对ngx_unix_recv的调用， 查看ngx_http_upstream_check_discard_handler 该函数在后台健康检查的作用: 该函数在链接关闭前不断从链接中读取数据，读取的数据不做任何处理，相当于丢弃。 而104错误就是在这不断读取中造成的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Breakpoint 1, ngx_http_upstream_check_discard_handler (event=0x7fffcf65e218) at /home/gjf/cloudfence/bdwaf/nginx_upstream_check_module/ngx_http_upstream_check_module.c:1233</div><div class="line">1233            size = c-&gt;recv(c, buf, 4096);</div><div class="line">gdb) p errno</div><div class="line">$1 = 11</div><div class="line">(gdb) watch errno</div><div class="line">Hardware watchpoint 2: errno</div><div class="line">(gdb) n</div><div class="line">Hardware watchpoint 2: errno</div><div class="line"></div><div class="line">Old value = 11</div><div class="line">New value = 104</div><div class="line">0x00007ffff7bcb813 in recv () from /lib/x86_64-linux-gnu/libpthread.so.0</div><div class="line">(gdb) l</div><div class="line">1228        &#125;</div><div class="line">1229</div><div class="line">1230        peer = c-&gt;data;</div><div class="line">1231</div><div class="line">1232        while (1) &#123;</div><div class="line">1233            size = c-&gt;recv(c, buf, 4096);</div><div class="line">1234</div><div class="line">1235            if (size &gt; 0) &#123;</div><div class="line">1236                continue;</div><div class="line">1237</div></pre></td></tr></table></figure>
-<p>源码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">ngx_http_upstream_check_discard_handler(ngx_event_t *event)</div><div class="line">&#123;</div><div class="line">    u_char                          buf[4096];</div><div class="line">    ssize_t                         size;</div><div class="line">    ngx_connection_t               *c;</div><div class="line">    ngx_http_upstream_check_peer_t *peer;</div><div class="line"></div><div class="line">    c = event-&gt;data;</div><div class="line"></div><div class="line">    ngx_log_debug0(NGX_LOG_DEBUG_HTTP, c-&gt;log, 0,</div><div class="line">                   &quot;upstream check discard handler&quot;);</div><div class="line"></div><div class="line">    if (ngx_http_upstream_check_need_exit()) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    peer = c-&gt;data;</div><div class="line"></div><div class="line">    while (1) &#123;</div><div class="line">        size = c-&gt;recv(c, buf, 4096);</div><div class="line"></div><div class="line">        if (size &gt; 0) &#123;</div><div class="line">            continue;</div><div class="line"></div><div class="line">        &#125; else if (size == NGX_AGAIN) &#123;</div><div class="line">            break;</div><div class="line"></div><div class="line">        &#125; else &#123;</div><div class="line">            if (size == 0) &#123;</div><div class="line">                ngx_log_debug0(NGX_LOG_DEBUG_HTTP, c-&gt;log, 0,</div><div class="line">                               &quot;peer closed its half side of the connection&quot;);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            goto check_discard_fail;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (ngx_handle_read_event(c-&gt;read, 0) != NGX_OK) &#123;</div><div class="line">        goto check_discard_fail;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return;</div><div class="line"></div><div class="line"> check_discard_fail:</div><div class="line">    c-&gt;error = 1;</div><div class="line">    ngx_http_upstream_check_clean_event(peer);</div><div class="line">&#125;</div><div class="line">ngx_http_upstream_check_discard_handler函数是在清理一个健康检查主动链接的事件时被调用，在清理前会注册一些对该链接的读写清理的函数。</div><div class="line">而为什么会清理一个健康检查主动链接的事件，看源码得知，健康检查模块中在一些数据收取完毕或数据发送完毕后或者链接处理完毕（或者出错）后会清理该链接的一些监听读写事件。</div><div class="line"></div><div class="line">static void</div><div class="line">ngx_http_upstream_check_clean_event(ngx_http_upstream_check_peer_t *peer)</div><div class="line">&#123;</div><div class="line">    ngx_connection_t                    *c;</div><div class="line">    ngx_http_upstream_check_srv_conf_t  *ucscf;</div><div class="line">    ngx_check_conf_t                    *cf;</div><div class="line"></div><div class="line">    c = peer-&gt;pc.connection;</div><div class="line">    ucscf = peer-&gt;conf;</div><div class="line">    cf = ucscf-&gt;check_type_conf;</div><div class="line"></div><div class="line">    if (c) &#123;</div><div class="line">        ngx_log_debug2(NGX_LOG_DEBUG_HTTP, c-&gt;log, 0,</div><div class="line">                       &quot;http check clean event: index:%i, fd: %d&quot;,</div><div class="line">                       peer-&gt;index, c-&gt;fd);</div><div class="line">        if (c-&gt;error == 0 &amp;&amp;</div><div class="line">            cf-&gt;need_keepalive &amp;&amp;</div><div class="line">            (c-&gt;requests &lt; ucscf-&gt;check_keepalive_requests))</div><div class="line">        &#123;</div><div class="line">            c-&gt;write-&gt;handler = ngx_http_upstream_check_dummy_handler;</div><div class="line">            c-&gt;read-&gt;handler = ngx_http_upstream_check_discard_handler;</div><div class="line">        &#125; else &#123;</div><div class="line">            ngx_close_connection(c);</div><div class="line">            peer-&gt;pc.connection = NULL;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>接着查看是否跟后台服务器有关，发现只有个别服务器会产生104错误。经测试，在删除该服务器所对应网站在nginx的代理配置后，104的错误不在产生</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Breakpoint 1, ngx_http_upstream_check_discard_handler (event=0x7fffcf65e218) at /home/gjf/cloudfence/bdwaf/nginx_upstream_check_module/ngx_http_upstream_check_module.c:1233</div><div class="line">1233            size = c-&gt;recv(c, buf, 4096);</div><div class="line">(gdb) p *(peer.pc.name)</div><div class="line">$1 = &#123;len = 16, data = 0x1effe50 &quot;218.17.254.67:80&quot;&#125;</div><div class="line">(gdb) watch errno</div><div class="line">Hardware watchpoint 2: errno</div><div class="line">(gdb) n</div><div class="line">Hardware watchpoint 2: errno</div><div class="line"></div><div class="line">Old value = 11</div><div class="line">New value = 104</div><div class="line">0x00007ffff7bcb813 in recv () from /lib/x86_64-linux-gnu/libpthread.so.0</div><div class="line">(gdb) l</div><div class="line">1228        &#125;</div><div class="line">1229</div><div class="line">1230        peer = c-&gt;data;</div><div class="line">1231</div><div class="line">1232        while (1) &#123;</div><div class="line">1233            size = c-&gt;recv(c, buf, 4096);</div><div class="line">1234</div><div class="line">1235            if (size &gt; 0) &#123;</div><div class="line">1236                continue;</div><div class="line">1237</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2017/09/12 11:48:23 [error] 31222#0: enable check peer: 218.17.254.67:80</div><div class="line">2017/09/12 11:48:35 [error] 31222#0: recv() failed (104: Connection reset by peer)</div></pre></td></tr></table></figure>
-<p>由此猜想可能与后台服务器处理该链接健康检查模块的链接过程有关， 经查阅相关资料有关这样的描述：</p>
-<p>errno = 104错误表明你在对一个对端socket已经关闭的的连接调用write或send方法，在这种情况下，调用write或send方法后， 对端socket便会向本端socket发送一个RESET信号，在此之后如果继续执行write或send操作，就会得到errno为104，错误描述为connection reset by peer。 </p>
-<p>5 接着采用tcpdump对该服务进行抓包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo tcpdump   -i  eth0  -s  0  -w  test.pcap   host 218.17.254.67</div></pre></td></tr></table></figure>
-<p>经多次抓包观察发现，发现该服务器经常会向109发送reset报文。<br><a href="https://github.com/jinri/jinri.github.io/blob/master/res/reset.png" target="_blank" rel="external">reset.png</a></p>
-<p>reset报文发送场景（可能还有更多）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1 当尝试和未开放的服务器端口建立tcp连接时，服务器tcp将会直接向客户端发送reset报文</div><div class="line">2 双方之前已经正常建立了通信通道，也可能进行过了交互，当某一方在交互的过程中发生了异常，如崩溃等，异常的一方会向对端发送reset报文，通知对方将连接关闭</div><div class="line">3 当收到TCP报文，但是发现该报文不是已建立的TCP连接列表可处理的，则其直接向对端发送reset报文</div><div class="line">4 ack报文丢失，并且超出一定的重传次数或时间后，会主动向对端发送reset报文释放该TCP连接</div></pre></td></tr></table></figure>
-<p>结论：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1 由此可基本确定为产生104该错误的原因为，对该模块发出的tcp方式的健康检查包，对端服务器的处理（关闭了该链接）。</div><div class="line">2 查看该类服务器的健康状态：正常，网站也可正常访问。该错误应该不会影响bdwaf正常功能。</div><div class="line">3 多数服务器不会产生该错误，如果改源码想屏蔽掉该错误，可能会影响其它正常功能。</div><div class="line">4 发http方式或者https方式的健康检查包也会有相应错误产生，且http无法检测https的服务器，https服务器无法检查http的服务器 而tcp的可以同时做到。</div></pre></td></tr></table></figure>
-<p>参考链接：</p>
-<ul>
-<li><a href="http://blog.csdn.net/alibo2008/article/details/45694845" target="_blank" rel="external">http://blog.csdn.net/alibo2008/article/details/45694845</a> </li>
-<li><a href="http://blog.csdn.net/candyguy242/article/details/25699727" target="_blank" rel="external">http://blog.csdn.net/candyguy242/article/details/25699727</a> </li>
-<li><a href="http://lovestblog.cn/blog/2014/05/20/tcp-broken-pipe/" target="_blank" rel="external">http://lovestblog.cn/blog/2014/05/20/tcp-broken-pipe/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/" itemprop="url">Nginx+Modsecurity 403带规则跳转实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T10:00:10+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Nginx-Modsecurity-403带规则跳转实现"><a href="#Nginx-Modsecurity-403带规则跳转实现" class="headerlink" title="Nginx+Modsecurity 403带规则跳转实现"></a>Nginx+Modsecurity 403带规则跳转实现</h2><p>Nginx+Modsecurity403跳转实现基于modsecurity重定向，而实现这个重定向必须解决之前出现的modsecurity bug <a href="https://github.com/SpiderLabs/ModSecurity/issues/582" target="_blank" rel="external"><strong><strong>post500</strong></strong></a></p>
-<ul>
-<li><a href="https://github.com/jinri/jinri.github.io/blob/master/res/post500.diff" target="_blank" rel="external">modsecurity源码更改</a></li>
-</ul>
-<p>为实现跳转，须在modsecurity配置文件中加入如下规则：</p>
-<ul>
-<li>1、阶段1，阶段2的默认动作修改为pass才可以带规则跳转</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecDefaultAction phase:1,log,auditlog,pass</div><div class="line">SecDefaultAction phase:2,log,auditlog,pass</div></pre></td></tr></table></figure>
-<ul>
-<li>2、定义变量hit_block_count，hit_all_ruleid并初始化。这两个变量的作用域为一次请求。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecAction &quot;id:&apos;300101&apos;,phase:1,t:none,setvar:tx.hit_block_count=0,nolog,pass&quot;</div><div class="line">SecAction &quot;id:&apos;300102&apos;,phase:1,t:none,setvar:tx.hit_all_ruleid=,nolog,pass&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>3、为实现规则ip的统计和命中次数的统计，需要在每条规则后加入</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;,setvar:tx.hit_block_count=+1,setvar:tx.hit_all_ruleid=%&#123;tx.hit_all_ruleid&#125;+%&#123;rule.id&#125;&quot;</div></pre></td></tr></table></figure>
-<p>需要加入上述设置的规则较多，故采用脚本实现。<br><a href="https://github.com/jinri/jinri.github.io/blob/master/res/modsec_rules_change.sh" target="_blank" rel="external">modsec_rules_change.sh</a></p>
-<p>本次加入上述配置的modsecurity核心配置文件为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">modsecurity_crs_20_protocol_violations.conf</div><div class="line">modsecurity_crs_21_protocol_anomalies.conf  </div><div class="line">modsecurity_crs_23_request_limits.conf </div><div class="line">modsecurity_crs_35_bad_robots.conf  </div><div class="line">modsecurity_crs_40_generic_attacks.conf  </div><div class="line">modsecurity_crs_41_sql_injection_attacks.conf  </div><div class="line">modsecurity_crs_41_xss_attacks.conf  </div><div class="line">modsecurity_crs_42_tight_security.conf  </div><div class="line">modsecurity_crs_45_trojans.conf</div></pre></td></tr></table></figure>
-<p>以后有需想加入该设置的配置文件，把该脚本放在相同目录，配置conf_list.config，再运行modsec_rules_change.sh脚本即可。</p>
-<ul>
-<li>4、在阶段2阻断</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecRule  TX:hit_block_count &quot;@ge 1&quot; &quot;id:&apos;300103&apos;,nolog, pass, phase:2, t:none, setvar:&apos;tx.redirect_url_args=rule_id&amp;%&#123;tx.hit_block_count&#125;%&#123;tx.hit_all_ruleid&#125;&amp;ip&amp;%&#123;tx.real_ip&#125;&amp;time&amp;%&#123;TIME_EPOCH&#125;&amp;host&amp;%&#123;request_headers.host&#125;&apos;,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;&quot;</div><div class="line">SecRule  TX:redirect_url_args &quot;!@streq 0&quot; &quot;nolog,deny,phase:2,id:&apos;300104&apos;,t:none,t:base64Encode,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;,redirect:http://172.16.2.107?act=intercept&amp;url=%&#123;REQUEST_URI&#125;&amp;args=%&#123;MATCHED_VAR&#125;&quot;</div></pre></td></tr></table></figure>
-<p>在阶段4阻断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecRule  TX:hit_block_count &quot;@ge 1&quot; &quot;id:&apos;300105&apos;,nolog, pass, phase:4, t:none, setvar:&apos;tx.redirect_url_args=rule_id&amp;%&#123;tx.hit_block_count&#125;%&#123;tx.hit_all_ruleid&#125;&amp;ip&amp;%&#123;tx.real_ip&#125;&amp;time&amp;%&#123;TIME_EPOCH&#125;&amp;host&amp;%&#123;request_headers.host&#125;&apos;,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;&quot;</div><div class="line">SecRule  TX:redirect_url_args &quot;!@streq 0&quot; &quot;nolog,deny,phase:4,id:&apos;300106&apos;,t:none,t:base64Encode,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;,redirect:http://172.16.2.107?act=intercept&amp;url=%&#123;REQUEST_URI&#125;&amp;args=%&#123;MATCHED_VAR&#125;&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>5、重定向链接需要根据实际环境做相应修改，跳转链接参数部分做了base64编码。</p>
-</li>
-<li><p>6、测试： 节点代理一个网站 www.gengjunfei.com<br>浏览器中采用如下方式访问：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.gengjunfei.com/?id=%27 or %271%27=%271</div></pre></td></tr></table></figure>
-<p>这时跳转至链接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://192.168.60.128/?act=intercept&amp;url=/?id=%27%20or%20%271%27=%271&amp;args=cnVsZV9pZCY1Kzk1MDkwMSs5NTkwNzErOTgxMjQ0Kzk4MTI0Mis5ODEyNDMmaXAmMTcyLjE2LjIuMTcmdGltZSYxNDk2NjQ1NzIxJmhvc3Qmd3d3LmdlbmdqdW5mZWkuY29t</div></pre></td></tr></table></figure>
-<p>对args=后面的参数base64解码得：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rule_id&amp;5+950901+959071+981244+981242+981243&amp;ip&amp;172.16.2.17&amp;time&amp;1496645721&amp;host&amp;www.gengjunfei.com</div></pre></td></tr></table></figure>
-<p>查看nginx error日志 ，正好中了5条规则。</p>
-<p><a href="https://github.com/jinri/jinri.github.io/blob/master/res/403_err.png" target="_blank" rel="external">nginx_403.error</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.gengjunfei.com/2017/07/12/Modsecurity日志写入redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/12/Modsecurity日志写入redis/" itemprop="url">Modsecurity 日志写入redis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T18:00:10+08:00">
-                2017-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> Modsecurity 日志写入redis</p>
-<p>1、要写入redis，机器上必须要安装有redis服务器。nginx+modsecurity的error.log和modsec_audit.log 原来都是写文件的因为频繁写入文件会造成nginx引擎性能下降（大流量测试流量存在瓶颈），故采用audit日志写入redis的方式。<br>该功能修改了modsecurity下的3个源文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">modsecurity/standalone/api.c</div><div class="line">modsecurity/apache2/msc_logging.h</div><div class="line">modsecurity/apache2/msc_logging.c</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/jinri/jinri.github.io/blob/master/res/changeset_e87d1044b999b8048a175c843bb1047ed412316f.diff" target="_blank" rel="external">changeset.diff</a></p>
-<p>2、redis安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">unzip redis-3.2.3.tar.gz</div><div class="line">tar -xvf redis-3.2.3.tar</div><div class="line">cd redis-3.2.3</div><div class="line">make</div><div class="line">make install PREFIX=/usr/local/redis</div></pre></td></tr></table></figure>
-<ul>
-<li>环境配置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p /var/log/redis</div><div class="line">mkdir -p /var/lib/redis</div><div class="line">cd /usr/local/redis</div><div class="line">mkdir etc</div><div class="line">cp /root/redis.conf etc/</div></pre></td></tr></table></figure>
-<ul>
-<li>启动redis</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf</div></pre></td></tr></table></figure>
-<ul>
-<li>添加到开机启动</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.local </div><div class="line">添加 /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf</div></pre></td></tr></table></figure>
-<p>redis版本2.XX,在使用过程中有redis占用内存持续增大至过大等问题。<br>故使用为3.XX,升级过程稍微有些区别。<br>Modsecurity audit日志写入redis，最重要的是使用了redis数据库一个轻量的C语言客户端库Hiredis。</p>
-<p>3、hiredis 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">unzip hiredis-master.zip</div><div class="line">cd hiredis-master</div><div class="line">make;</div><div class="line">make install;</div><div class="line">ln -s  /usr/local/lib/libhiredis.so.0.13 /usr/lib/x86_64-linux-gnu/libhiredis.so.0.13</div></pre></td></tr></table></figure>
-<p>4、hiredis 是以动态链接库的形式存在，所以必须要编译进nginx才可以。为此增加了一个nginx的编译选项（configure中加入编译选项）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--with-cust-ld-opt=&quot;-lhiredis&quot;</div></pre></td></tr></table></figure>
-<p>以后在编译nginx的时候如果要加入redis功能需要更改make和options文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx-1.8.1/auto/make </div><div class="line">nginx-1.8.1/auto/options</div></pre></td></tr></table></figure>
-<p>写日志进redis采用的是Redis 发布订阅的消息通信模式. 发送者(pub)发送消息，订阅者(sub)接收消息.<br>Redis 客户端可以订阅任意数量的频道,nginx引擎写入的客户端频道名为：nginx<br>采用客户端连上redis服务器后，可采用SUBSCRIBE nginx 等待接收消息。<br><a href="https://github.com/jinri/jinri.github.io/blob/master/res/modsecurity_redis_log.png" target="_blank" rel="external">modsecurity_redis_log.png</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/29/我的vim设置/">我的vim配置</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-29T14:00:10.000Z" itemprop="datePublished">
+          2017-10-29
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        12345678910111213141516171819202122232425262728set nocompatible         &quot;关闭 vi 兼容模式                                                                                syntax on                &quot;自动语法高亮      set numbe
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/29/我的vim设置/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/28/nginx配置http为1.0到1.1/">nginx配置http为1.0到1.1</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-28T14:00:10.000Z" itemprop="datePublished">
+          2017-10-28
+      </time>
     
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">gjf</p>
-              <p class="site-description motion-element" itemprop="description">每个不曾起舞的日子 都是对生命的辜负</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-          </div>
-
-          
-          
-
-          
-          
-
-          
-
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        nginx配置http为1.0到1.1，主要是为了长连接有效。
+对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。12345678910111213141516upstream http_backend &#123;    server 127.0.0.1:8080;    keepalive 16;&#125;server &#123;    ...    l
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/28/nginx配置http为1.0到1.1/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
-      </section>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/27/数字证书文件cer和pfx的区别/">数字证书文件cer和pfx的区别</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-27T14:00:10.000Z" itemprop="datePublished">
+          2017-10-27
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        作为文件形式存在的证书一般有这几种格式：
 
-      
+带有私钥的证书
 
-      
 
+由Public Key Cryptography Standards #12，PKCS#12标准定义，包含了公钥和私钥的二进制格式的证书形式，以pfx作为证书文件后缀名。
+
+
+二进制编码的证书
+
+
+证书中没有私钥，DER 编码二进制格式的证书文件，以cer作为证书文件后缀名。
+
+
+Base64编码的证书
+
+
+证书中没有私钥，BASE64 编码格式的证书文件，也是以cer作为
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/27/数字证书文件cer和pfx的区别/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">ubuntu12.04默认gcc4.6.3升级到gcc4.8</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-26T14:00:10.000Z" itemprop="datePublished">
+          2017-10-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -yapt-get install sof
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/26/arp静态绑定/">arp静态绑定</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-26T14:00:10.000Z" itemprop="datePublished">
+          2017-10-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        
+Windows的命令提示符下，键入命令1ipconfig /all
+
+
+查看一下本机电脑的IP地址信息，还能看到网关及DNS信息。
+
+在DOS命令提示符下输入命令1arp -a
+
+
+来获取网关（即路由器）的IP地址和MAC地址。
+
+针对WindowXP用户，其操作方法是在DOS命令提示符下输入命令1arp -s 192.168.1.1  00-19-e0-aa-9b-e4
+
+
+即可实现邦定。
+
+对于Windows7用户来说，实现方面为
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/26/arp静态绑定/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/24/如何取消vim的智能缩进/">如何取消vim的智能缩进</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-24T14:00:10.000Z" itemprop="datePublished">
+          2017-10-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        vim的自动缩进是光标换到下一行后自动与上一行的缩进对齐，而智能缩进是换到下一行后光标在与上一行缩进对齐的情况下又往里缩进了一次，怎么取消它的智能缩进？
+
+解决方案：切换到paste模式。
+在粘贴数据之前，输入下面指定开启paste模式
+
+
+1:set paste
+粘贴完毕后，输入下面指定关闭paste模式1:set nopaste
+每次都需要输入很麻烦，那么也可以在.vimrc中加入下面内容：
+1set pastetoggle=&lt
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/24/如何取消vim的智能缩进/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/23/hello-world/">Hello World</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-23T02:44:13.182Z" itemprop="datePublished">
+          2017-10-23
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new p
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/23/hello-world/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">nginx 104 Connection reset by peer 问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-24T02:00:10.000Z" itemprop="datePublished">
+          2017-09-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        nginx 报 “recv() failed (104: Connection reset by peer)”问题排查现象：nginx在加入nginx_upstream_check_module健康检查模块后error.log中经常出现recv() failed (104: Connection reset by peer)错误
+12378:2017/09/12 14:57:40 [error] 34722#0: recv() fail
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/">Nginx+Modsecurity 403带规则跳转实现</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-07-24T02:00:10.000Z" itemprop="datePublished">
+          2017-07-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Nginx+Modsecurity 403带规则跳转实现Nginx+Modsecurity403跳转实现基于modsecurity重定向，而实现这个重定向必须解决之前出现的modsecurity bug post500
+
+modsecurity源码更改
+
+为实现跳转，须在modsecurity配置文件中加入如下规则：
+
+1、阶段1，阶段2的默认动作修改为pass才可以带规则跳转
+
+12SecDefaultAction phase:1,l
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/07/12/Modsecurity日志写入redis/">Modsecurity 日志写入redis</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-07-12T10:00:10.000Z" itemprop="datePublished">
+          2017-07-12
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                         Modsecurity 日志写入redis
+1、要写入redis，机器上必须要安装有redis服务器。nginx+modsecurity的error.log和modsec_audit.log 原来都是写文件的因为频繁写入文件会造成nginx引擎性能下降（大流量测试流量存在瓶颈），故采用audit日志写入redis的方式。该功能修改了modsecurity下的3个源文件。
+123modsecurity/standalone/api.cm
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/07/12/Modsecurity日志写入redis/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <nav class="pagination" role="pagination">
+          
+          <a class="pull-right" href="/page/2/">Older Posts →</a>
+        </nav>
     </div>
-  </aside>
+</section>
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>弱小和无知不是生存的障碍，傲慢才是。</p>
+        </div>
+    </div>
+</section>
+<!-- ============================ END Content =========================== -->
 
+      
+<!-- ============================ Footer =========================== -->
 
-        
-      </div>
-    </main>
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By gjf. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">gjf</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
   }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      (function(){
+        console.log('font');
+        var getCss = function(path) {
+          var head = document.getElementsByTagName('head')[0];
+          link = document.createElement('link');
+          link.href = path;
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          head.appendChild(link);
+        };
+        getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+      })();
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
 
 </body>
 </html>
