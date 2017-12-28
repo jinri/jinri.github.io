@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>gjf</title>
+  <title>Nginx+Modsecurity缓存上传文件文件 | gjf</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -158,150 +158,55 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/01/11/gnosis/">小重山</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-01-11T01:19:26.000Z" itemprop="datePublished">
-          2017-01-11
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-09-25T02:00:10.000Z" itemprop="datePublished">
+          2017-09-25
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        白首为功名旧山松竹老阻归程欲将心事付瑶琴知音少弦断有谁听
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/01/11/gnosis/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>Nginx+Modsecurity缓存上传文件文件</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/29/openssh nginx 升级/">openssh nginx 升级</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-29T13:00:05.000Z" itemprop="datePublished">
-          2016-11-29
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        Linux ubuntu 升级openssh nginx1. 升级openssh查看已安装的版本信息：12#ssh -V OpenSSH_5.9p1 Debian-5ubuntu1, OpenSSL 1.0.1 14 Mar 2012
-这里把openssh升级到7.6p1版本：
-123456789cd /tmpcp /etc/ssh/ /etc/ssh_bak/wget https://openbsd.hk/pub/OpenBSD/Op
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/29/openssh nginx 升级/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>创建上传文件目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir /root/uploadfile</div><div class="line">mkdir /usr/gjf/tmp/uploaddir</div></pre></td></tr></table></figure>
+<p>安装 lua5.1 包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install lua5.1</div></pre></td></tr></table></figure>
+<p>modsecurity.conf配置更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SecUploadDir /usr/gjf/tmp/uploaddir</div><div class="line">SecUploadKeepFiles On</div><div class="line">SecUploadFileMode 0600</div><div class="line">SecDebugLogLevel 4</div></pre></td></tr></table></figure>
+<p>7测试</p>
+<p>在本地host添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">172.16.2.109 www.testupload.com</div></pre></td></tr></table></figure>
+<p>浏览器访问 <a href="http://www.testupload.com/dvwa/login.php" target="_blank" rel="external">http://www.testupload.com/dvwa/login.php</a> ，admin/password</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/26/objdump 使用/">objdump 使用</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-26T13:00:05.000Z" itemprop="datePublished">
-          2016-11-26
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        objdump -h SimpleSection.o查看段表信息（objdump有省略）
-objdump -x -d  SimpleSection.o-x Display the contents of all headers
--d Display assembler contents of executable sections
--s Display the full contents of all sections requeste
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/26/objdump 使用/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          <a class="pull-left" href="/page/2/">← Newer Posts</a>
-          
-        </nav>
+    
+    <a class="pull-left" href="/2017/09/26/Linux：history命令记录操作时间、操作用户、操作IP/" style="float: left;">
+        ← history命令记录操作时间、操作用户、操作IP
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/09/24/nginx 104 Connection reset by peer 问题/">
+        nginx 104 Connection reset by peer 问题 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>弱小和无知不是生存的障碍，傲慢才是。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
