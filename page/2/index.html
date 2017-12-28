@@ -196,6 +196,205 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2017/09/26/LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)/">LINUX用户登录后精确命令记录</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-26T14:00:05.000Z" itemprop="datePublished">
+          2017-09-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)1234567891011# 设置保存历史命令的文件大小export HISTFILESIZE=10000000# 保存历史命令条数export HISTSIZE=1000000# 实时记录历史命令，默认只有在用户退出之后才会统一记录，很容易造成多个用户间的相互覆盖。export PROMPT_COMMAND=&quot;history -a&quot;# 记录
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/26/LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/26/Linux：history命令记录操作时间、操作用户、操作IP/">history命令记录操作时间、操作用户、操作IP</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-26T13:00:05.000Z" itemprop="datePublished">
+          2017-09-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Linux：history命令记录操作时间、操作用户、操作IP1、/etc/profile文件中加入以下内容
+2、执行：source /etc/profile
+12345678910111213141516171819202122232425262728export HISTTIMEFORMAT=&quot;%Y-%m-%d %H:%M:%S &quot;echo &apos;export HISTTIMEFORMAT=&quot;%F
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/26/Linux：history命令记录操作时间、操作用户、操作IP/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">nginx 104 Connection reset by peer 问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-24T02:00:10.000Z" itemprop="datePublished">
+          2017-09-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        nginx 报 “recv() failed (104: Connection reset by peer)”问题排查现象：nginx在加入nginx_upstream_check_module健康检查模块后error.log中经常出现recv() failed (104: Connection reset by peer)错误
+12378:2017/09/12 14:57:40 [error] 34722#0: recv() fail
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/">Nginx+Modsecurity 403带规则跳转实现</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-07-24T02:00:10.000Z" itemprop="datePublished">
+          2017-07-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Nginx+Modsecurity 403带规则跳转实现Nginx+Modsecurity403跳转实现基于modsecurity重定向，而实现这个重定向必须解决之前出现的modsecurity bug post500
+
+modsecurity源码更改
+
+为实现跳转，须在modsecurity配置文件中加入如下规则：
+
+1、阶段1，阶段2的默认动作修改为pass才可以带规则跳转
+
+12SecDefaultAction phase:1,l
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/07/12/Modsecurity日志写入redis/">Modsecurity 日志写入redis</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-07-12T10:00:10.000Z" itemprop="datePublished">
+          2017-07-12
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                         Modsecurity 日志写入redis
+1、要写入redis，机器上必须要安装有redis服务器。nginx+modsecurity的error.log和modsec_audit.log 原来都是写文件的因为频繁写入文件会造成nginx引擎性能下降（大流量测试流量存在瓶颈），故采用audit日志写入redis的方式。该功能修改了modsecurity下的3个源文件。
+123modsecurity/standalone/api.cm
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/07/12/Modsecurity日志写入redis/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/05/26/Ubuntu 命令 安装与卸载/">Ubuntu 命令 安装与卸载</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-05-26T14:00:05.000Z" itemprop="datePublished">
+          2017-05-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Ubuntu是最常用的Linux系统之一，其中很多新手在安装软件的过程中，由于对Linux不熟悉，往往不知道如何卸载干净。
+
+废话不多说，直接上干货！命令
+1# apt-cache search
+  ● 最佳卸载命令
+1apt-get remove packagename --purge &amp;&amp; apt-get autoremove --purge &amp;&amp; apt-get clean
+卸载程序(包括配置文件)
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/05/26/Ubuntu 命令 安装与卸载/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2017/04/26/字符编码方式发展历程（转）/">字符编码方式发展历程</a></h3>
                     <span>
                         <span class="post-meta">
@@ -320,7 +519,7 @@
         
         <nav class="pagination" role="pagination">
           <a class="pull-left" href="/">← Newer Posts</a>
-          
+          <a class="pull-right" href="/page/3/">Older Posts →</a>
         </nav>
     </div>
 </section>
