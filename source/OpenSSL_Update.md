@@ -1,6 +1,7 @@
 ---
 title: OpenSSL升级
 date: 2017-02-12 10:50:10
+categories: linux
 tags:
 ---
 

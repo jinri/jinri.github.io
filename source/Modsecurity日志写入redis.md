@@ -1,6 +1,7 @@
 ---
 title: Modsecurity 日志写入redis
 date: 2017-07-12 18:00:10
+categories: nginx
 tags:
 ---
 

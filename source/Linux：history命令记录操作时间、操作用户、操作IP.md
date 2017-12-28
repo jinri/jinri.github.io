@@ -1,6 +1,7 @@
 ---
 title: history命令记录操作时间、操作用户、操作IP
 date: 2017-09-26 21:00:05
+categories: linux
 tags: 
 ---
 ### Linux：history命令记录操作时间、操作用户、操作IP

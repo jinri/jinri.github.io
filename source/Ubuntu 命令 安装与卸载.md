@@ -1,6 +1,7 @@
 ---
 title: Ubuntu 命令 安装与卸载
 date: 2017-5-26 22:00:05
+categories: ubuntu
 tags: 
 ---
 Ubuntu是最常用的Linux系统之一，其中很多新手在安装软件的过程中，由于对Linux不熟悉，往往不知道如何卸载干净。

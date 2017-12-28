@@ -1,6 +1,7 @@
 ---
 title: vim打开报openssl error 错误
 date: 2017-02-17 12:50:10
+categories: linux
 tags:
 ---
 

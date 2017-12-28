@@ -1,6 +1,7 @@
 ---
 title: objdump 使用
 date: 2016-11-26 21:00:05
+categories: debug
 tags: 
 ---
 #### objdump -h SimpleSection.o 

@@ -1,6 +1,7 @@
 ---
 title: LINUX用户登录后精确命令记录
 date: 2017-09-26 22:00:05
+categories: linux
 tags: 
 ---
 ### LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)

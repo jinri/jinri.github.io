@@ -1,6 +1,7 @@
 ---
 title: arp静态绑定
 date: 2017-10-26 22:00:10
+categories: windows
 tags: 
 ---
 - Windows的命令提示符下，键入命令

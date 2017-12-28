@@ -1,6 +1,7 @@
 ---
 title: 数字证书文件cer和pfx的区别
 date: 2017-10-27 22:00:10
+categories: article
 tags: 
 ---
 作为文件形式存在的证书一般有这几种格式：

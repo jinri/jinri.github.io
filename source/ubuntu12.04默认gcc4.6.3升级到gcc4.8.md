@@ -1,6 +1,7 @@
 ---
 title: ubuntu12.04默认gcc4.6.3升级到gcc4.8
 date: 2017-10-26 22:00:10
+categories: ubuntu
 tags: 
 ---
 ```

@@ -1,6 +1,7 @@
 ---
 title: docker 介绍
 date: 2017-11-01 22:00:10
+categories: docker
 tags: 
 ---
 ### docker 是什么？

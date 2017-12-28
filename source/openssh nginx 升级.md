@@ -1,6 +1,7 @@
 ---
 title: openssh nginx 升级
 date: 2016-11-29 21:00:05
+categories: linux
 tags: 
 ---
 ## Linux ubuntu 升级openssh nginx

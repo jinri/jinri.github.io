@@ -1,6 +1,7 @@
 ---
 title: 我的vim配置
 date: 2017-10-29 22:00:10
+categories: vim
 tags: 
 ---
 ```

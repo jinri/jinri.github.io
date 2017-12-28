@@ -1,6 +1,7 @@
 ---
 title: 如何生成和使用补丁包（diff 和 patch）
 date: 2016-09-27 10:00:10
+categories: debug
 tags: 
 ---
 ### 如何生成和使用补丁包（diff 和 patch）

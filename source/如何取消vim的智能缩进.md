@@ -1,6 +1,7 @@
 ---
 title: 如何取消vim的智能缩进
 date: 2017-10-24 22:00:10
+categories: vim
 tags: 
 ---
 

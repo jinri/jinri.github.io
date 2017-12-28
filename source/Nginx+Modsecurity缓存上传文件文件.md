@@ -1,7 +1,8 @@
 ---
 title: Nginx+Modsecurity缓存上传文件文件
 date: 2017-09-25 10:00:10
-tags: nginx
+categories: nginx
+tags: 
 ---
 创建上传文件目录
 
