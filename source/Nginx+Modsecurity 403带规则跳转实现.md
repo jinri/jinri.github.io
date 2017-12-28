@@ -1,7 +1,7 @@
 ---
 title: Nginx+Modsecurity 403带规则跳转实现
 date: 2017-07-24 10:00:10
-tags: 
+tags: nginx
 ---
 
 ## Nginx+Modsecurity 403带规则跳转实现 

@@ -1,7 +1,7 @@
 ---
 title: Nginx配置相关结构划分的技巧
 date: 2017-11-26 22:00:05
-tags: 
+tags: nginx
 ---
 ### Nginx配置相关结构划分的技巧
 

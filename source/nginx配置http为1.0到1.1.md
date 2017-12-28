@@ -1,7 +1,7 @@
 ---
 title: nginx配置http为1.0到1.1
 date: 2017-10-28 22:00:10
-tags: 
+tags: nginx
 ---
 
 nginx配置http为1.0到1.1，主要是为了长连接有效。

@@ -1,7 +1,7 @@
 ---
 title: git diff
 date: 2016-09-26 10:00:10
-tags: 
+tags: git
 ---
 
 在git提交环节，存在三大部分：working tree, index file, commit

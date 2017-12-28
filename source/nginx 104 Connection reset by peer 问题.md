@@ -1,7 +1,7 @@
 ---
 title: nginx 104 Connection reset by peer 问题
 date: 2017-09-24 10:00:10
-tags: 
+tags: nginx
 ---
 ### nginx 报 "recv() failed (104: Connection reset by peer)"问题排查
 
