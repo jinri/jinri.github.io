@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>如何取消vim的智能缩进 | gjf</title>
+  <title>如何生成和使用补丁包（diff 和 patch） | gjf</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -164,39 +164,55 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-10-24T14:00:10.000Z" itemprop="datePublished">
-          2017-10-24
+      <time datetime="2016-09-27T02:00:10.000Z" itemprop="datePublished">
+          2016-09-27
       </time>
     
 </span>
-                <h1>如何取消vim的智能缩进</h1>
+                <h1>如何生成和使用补丁包（diff 和 patch）</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><em>vim的自动缩进是光标换到下一行后自动与上一行的缩进对齐，而智能缩进是换到下一行后光标在与上一行缩进对齐的情况下又往里缩进了一次，怎么取消它的智能缩进？</em></p>
-<ul>
-<li><p>解决方案：切换到paste模式。</p>
-<p>在粘贴数据之前，输入下面指定开启paste模式</p>
+      		<h3 id="如何生成和使用补丁包（diff-和-patch）"><a href="#如何生成和使用补丁包（diff-和-patch）" class="headerlink" title="如何生成和使用补丁包（diff 和 patch）"></a>如何生成和使用补丁包（diff 和 patch）</h3><p>在开发的过程中，源码好配置文件都必须经常改动，如果每修改一个文件，然后都需要通过覆盖旧文件的方式提交，就会变得很麻烦，因此可以通过打补丁包方便我们的提交过程。对于php，python， 源代码，配置文件可通过此方式，二进制文件则无能为力。</p>
+<p>使用git仓库</p>
+<ol>
+<li>在git仓库生成补丁包</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff &gt; a.patch</div></pre></td></tr></table></figure>
+<ol>
+<li><p>尝试把补丁包打到别的git仓库 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">patch --dry-run -p1 &lt; a.patch</div></pre></td></tr></table></figure>
+<p>（–dry-run只显示过程，不会真正改动文件）</p>
 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set paste</div></pre></td></tr></table></figure>
-<p>粘贴完毕后，输入下面指定关闭paste模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set nopaste</div></pre></td></tr></table></figure></p>
-<p>每次都需要输入很麻烦，那么也可以在.vimrc中加入下面内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set pastetoggle=&lt;F3&gt;</div></pre></td></tr></table></figure>
-<p>这样就可以用F3来切换。</p>
+<li>第二步没报错，则真正打补丁  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">patch  -p1 &lt; a.patch</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用普通的目录（a目录为原目录，b目录为改动后的新目录）</p>
+<ol>
+<li><p>通过比对两个目录生成补丁包                 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">diff -Nur a b &gt; a.patch</div></pre></td></tr></table></figure>
+</li>
+<li><p>尝试把补丁包打到别的目录（要进入该目录）   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">patch --dry-run -p1 &lt; a.patch</div></pre></td></tr></table></figure>
+<p>（如果diff时不小心写成了diff -Nur b a， 则要使用参数p2）</p>
+</li>
+<li>第二步没报错，则真正打补丁                 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">patch  -p1 &lt; a.patch</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>（如果diff时不小心写成了diff -Nur b a， 则要使用参数p2）</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/10/26/arp静态绑定/" style="float: left;">
-        ← arp静态绑定
+    <a class="pull-left" href="/2016/11/26/objdump 使用/" style="float: left;">
+        ← objdump 使用
     </a>
     
     
-    <a class="pull-right" href="/2017/10/23/hello-world/">
-        Hello World →
+    <a class="pull-right" href="/2016/09/26/git diff/">
+        git diff →
     </a>
     
 </nav>

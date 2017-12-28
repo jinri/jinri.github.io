@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>如何取消vim的智能缩进 | gjf</title>
+  <title>git 代码冲突常见解决方法 | gjf</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -164,39 +164,37 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-10-24T14:00:10.000Z" itemprop="datePublished">
-          2017-10-24
+      <time datetime="2016-09-23T02:00:10.000Z" itemprop="datePublished">
+          2016-09-23
       </time>
     
 </span>
-                <h1>如何取消vim的智能缩进</h1>
+                <h1>git 代码冲突常见解决方法</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><em>vim的自动缩进是光标换到下一行后自动与上一行的缩进对齐，而智能缩进是换到下一行后光标在与上一行缩进对齐的情况下又往里缩进了一次，怎么取消它的智能缩进？</em></p>
-<ul>
-<li><p>解决方案：切换到paste模式。</p>
-<p>在粘贴数据之前，输入下面指定开启paste模式</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set paste</div></pre></td></tr></table></figure>
-<p>粘贴完毕后，输入下面指定关闭paste模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:set nopaste</div></pre></td></tr></table></figure></p>
-<p>每次都需要输入很麻烦，那么也可以在.vimrc中加入下面内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set pastetoggle=&lt;F3&gt;</div></pre></td></tr></table></figure>
-<p>这样就可以用F3来切换。</p>
+      		<h3 id="git-代码冲突常见解决方法"><a href="#git-代码冲突常见解决方法" class="headerlink" title="git 代码冲突常见解决方法"></a>git 代码冲突常见解决方法</h3><p>如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,<br>在发布这个配置文件的时候,会发生代码冲突:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">error: Your local changes to the following files would be overwritten by merge:</div><div class="line">        protected/config/main.php</div><div class="line">Please, commit your changes or stash them before you can merge.</div></pre></td></tr></table></figure>
+<p>如果希望保留生产服务器上所做的改动,仅仅并入新配置项, 处理方法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line">git pull</div><div class="line">git stash pop</div></pre></td></tr></table></figure>
+<p>然后可以使用git diff -w +文件名 来确认代码自动合并的情况.</p>
+<p>反过来,如果希望用代码库中的文件完全覆盖本地工作版本. 方法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard</div><div class="line">git pull</div></pre></td></tr></table></figure>
+<p>其中git reset是针对版本,如果想针对文件回退本地修改,使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout HEAD file/to/restore</div></pre></td></tr></table></figure>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/10/26/arp静态绑定/" style="float: left;">
-        ← arp静态绑定
+    <a class="pull-left" href="/2016/09/26/git diff/" style="float: left;">
+        ← git diff
     </a>
     
     
-    <a class="pull-right" href="/2017/10/23/hello-world/">
-        Hello World →
+    <a class="pull-right" href="/2016/09/23/git 代码冲突常见解决方法(1)/">
+        git 代码冲突常见解决方法 →
     </a>
     
 </nav>

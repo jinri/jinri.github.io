@@ -288,6 +288,140 @@ objdump -x -d  SimpleSection.o-x Display the contents of all headers
             </div>
         </div>
         
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/09/27/如何生成和使用补丁包（diff 和 patch）/">如何生成和使用补丁包（diff 和 patch）</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-09-27T02:00:10.000Z" itemprop="datePublished">
+          2016-09-27
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        如何生成和使用补丁包（diff 和 patch）在开发的过程中，源码好配置文件都必须经常改动，如果每修改一个文件，然后都需要通过覆盖旧文件的方式提交，就会变得很麻烦，因此可以通过打补丁包方便我们的提交过程。对于php，python， 源代码，配置文件可通过此方式，二进制文件则无能为力。
+使用git仓库
+
+在git仓库生成补丁包
+
+1git diff &gt; a.patch
+
+尝试把补丁包打到别的git仓库 
+1patch --dry-
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/09/27/如何生成和使用补丁包（diff 和 patch）/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/09/26/git diff/">git diff</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-09-26T02:00:10.000Z" itemprop="datePublished">
+          2016-09-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        在git提交环节，存在三大部分：working tree, index file, commit
+这三大部分中：
+
+working tree：就是你所工作在的目录，每当你在代码中进行了修改，working tree的状态就改变了。
+index file：是索引文件，它是连接working tree和commit的桥梁，每当我们使用git-add命令来登记后，index file的内容就改变了，此时index file就和working 
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/09/26/git diff/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/09/23/git 代码冲突常见解决方法/">git 代码冲突常见解决方法</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-09-23T02:00:10.000Z" itemprop="datePublished">
+          2016-09-23
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        git 代码冲突常见解决方法如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,在发布这个配置文件的时候,会发生代码冲突:
+123error: Your local changes to the following files would be overwritten by merge:        protected/config/main.phpPlease, commit your change
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/09/23/git 代码冲突常见解决方法/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/09/23/git 代码冲突常见解决方法(1)/">git 代码冲突常见解决方法</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-09-23T02:00:10.000Z" itemprop="datePublished">
+          2016-09-23
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        git 代码冲突常见解决方法如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,在发布这个配置文件的时候,会发生代码冲突:
+123error: Your local changes to the following files would be overwritten by merge:        protected/config/main.phpPlease, commit your change
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/09/23/git 代码冲突常见解决方法(1)/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
         <nav class="pagination" role="pagination">
           <a class="pull-left" href="/page/2/">← Newer Posts</a>
           
