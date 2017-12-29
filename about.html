@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Ubuntu 更新错误解决方法 | callmev</title>
+  <title>callmev</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -183,101 +183,97 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/dsc.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2></h2>
+                        <p>每一个不曾起舞的日子 都是对生命的辜负。</p>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <!-- // .col-md-12 -->
+        </div>
+        <div class="herofade beige-dk"></div>
+    </div>
+</section>
+
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
+
+<!-- ============================ END Hero Image =========================== -->
 <section id="intro">
     <div class="container">
         <div class="row col-md-offset-2">
             <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2017-11-23T14:00:10.000Z" itemprop="datePublished">
-          2017-11-23
-      </time>
-    
-</span>
-                <h1>Ubuntu 更新错误解决方法</h1>
+                <h1></h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<ul>
-<li>在Ubuntu和其它基于Ubuntu的Linux发行版中，更新错误是一个共性的错误，也经常发生。这些错误出现的原因多种多样，修复起来也很简单。在本文中，我们将见到Ubuntu中各种类型频繁发生的更新错误以及它们的修复方法。</li>
-</ul>
-<ol>
-<li>合并列表问题。<br> 当你在终端中运行更新命令时，你可能会碰到这个错误“合并列表错误”，就像下面这样：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">E:Encountered a section with no Package: header,</div><div class="line">E:Problem with MergeList /var/lib/apt/lists/archive.ubuntu.comubuntudistspreciseuniversebinary-i386Packages,</div><div class="line">E:The package lists or status file could not be parsed or opened.’</div></pre></td></tr></table></figure>
-<p>可以使用以下命令来修复该错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. sudo rm -r /var/lib/apt/lists/*</div><div class="line">2. sudo apt-get clean &amp;&amp; sudo apt-get update</div></pre></td></tr></table></figure>
-<ol>
-<li>下载仓库信息失败 -1.<br>实际上，有两种类型的下载仓库信息失败错误。如果你的错误是这样的：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">W:Failed to fetch bzip2:/var/lib/apt/lists/partial/in.archive.ubuntu.comubuntudistsoneiricrestrictedbinary-i386Packages Hash Sum mismatch,</div><div class="line">W:Failed to fetch bzip2:/var/lib/apt/lists/partial/in.archive.ubuntu.comubuntudistsoneiricmultiversebinary-i386Packages Hash Sum mismatch,</div><div class="line">E:Some index files failed to download. They have been ignored, or old ones used instead</div></pre></td></tr></table></figure>
-<p>那么，你可以用以下命令修复：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. sudo rm -rf /var/lib/apt/lists/*</div><div class="line">2. sudo apt-get update</div></pre></td></tr></table></figure>
-<ol>
-<li>部分更新错误.<br>在终端中运行更新会出现部分更新错误：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Not all updates can be installed</div><div class="line">Run a partial upgrade, to install as many updates as possible</div></pre></td></tr></table></figure>
-<p>在终端中运行以下命令来修复该错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-get install -f</div></pre></td></tr></table></figure>
-<ol>
-<li>加载共享库时发生错误.<br>该错误更多是安装错误，而不是更新错误。如果尝试从源码安装程序，你可能会碰到这个错误：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">error while loading shared libraries:</div><div class="line">cannot open shared object file: No such file or directory</div></pre></td></tr></table></figure>
-<p>该错误可以通过在终端中运行以下命令来修复：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. sudo /sbin/ldconfig -v</div></pre></td></tr></table></figure>
-<p>你可以在这里查找到更多详细内容加载共享库时发生错误。</p>
-<ol>
-<li>无法获取锁 /var/cache/apt/archives/lock.<br>在另一个程序在使用APT时，会发生该错误。假定你正在Ubuntu软件中心安装某个东西，然后你又试着在终端中运行apt。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">E: Could not get lock /var/cache/apt/archives/lock – open (11: Resource temporarily unavailable)</div><div class="line">E: Unable to lock directory /var/cache/apt/archives/</div></pre></td></tr></table></figure>
-<p>通常，只要你把所有其它使用apt的程序关了，这个问题就会好的。但是，如果问题持续，可以使用以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. sudo rm /var/lib/apt/lists/lock</div></pre></td></tr></table></figure>
-<p>如果上面的命令不起作用，可以试试这个命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. sudo killall apt-get</div></pre></td></tr></table></figure>
-<p>关于该错误的更多信息，可以在这里找到。</p>
-<ol>
-<li>GPG错误： 下列签名无法验证.<br>在添加一个PPA时，可能会导致以下错误GPG错误： 下列签名无法验证，这通常发生在终端中运行更新时：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">W: GPG error: http://repo.mate-desktop.org saucy InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 68980A0EA10B4DE8</div></pre></td></tr></table></figure>
-<p>我们所要做的，就是获取系统中的这个公钥，从信息中获取密钥号。在上述信息中，密钥号为68980A0EA10B4DE8。该密钥可通过以下方式使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8</div></pre></td></tr></table></figure>
-<p>在添加密钥后，再次运行更新就没有问题了。</p>
-<ol>
-<li>BADSIG错误<br>另外一个与签名相关的Ubuntu更新错误是BADSIG错误，它看起来像这样：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://extras.ubuntu.com precise Release: The following signatures were invalid: BADSIG 16126D3A3E5C1192 Ubuntu Extras Archive Automatic Signing Key</div><div class="line">W: GPG error: http://ppa.launchpad.net precise Release:</div><div class="line">The following signatures were invalid: BADSIG 4C1CBC1B69B0E2F4 Launchpad PPA for Jonathan French W: Failed to fetch http://extras.ubuntu.com/ubuntu/dists/precise/Release</div></pre></td></tr></table></figure>
-<p>要修复该BADSIG错误，请在终端中使用以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-get clean</div><div class="line">  2. cd /var/lib/apt</div><div class="line">  3. sudo mv lists oldlist</div><div class="line">  4. sudo mkdir -p lists/partial</div><div class="line">  5. sudo apt-get clean</div><div class="line">  6. sudo apt-get update</div></pre></td></tr></table></figure>
-<p>invalid: KEYEXPIRED 错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">W: GPG error: http://repo.mysql.com precise Release: The following signatures were invalid: KEYEXPIRED 1487236823 KEYEXPIRED 1487236823 KEYEXPIRED 1487236823</div></pre></td></tr></table></figure>
-<p>解决方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-key list | grep &quot;expired: &quot;</div><div class="line">sudo apt-key adv --keyserver keys.gnupg.net --recv-keys [KEY]</div><div class="line"></div><div class="line">sudo apt-key list  | grep &quot;expired: &quot; | sed -ne &apos;s|pub .*/\([^ ]*\) .*|\1|gp&apos; | xargs -n1 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys</div><div class="line"></div><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
-<p>Can’t locate Debconf/Db.pm 12.04<br>No file name for libpam0g<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt-get upgrade</div><div class="line">sudo dpkg -i /var/cache/apt/archives/*.deb</div><div class="line">sudo dpkg --configure -a</div><div class="line">sudo apt-get upgrade</div><div class="line"></div><div class="line">sudo rm -f /etc/apt/sources.list.d/*</div><div class="line">sudo dpkg --configure -a</div></pre></td></tr></table></figure></p>
-<p>本文汇集了可能会碰到的Ubuntu更新错误,希望这会对你处理这些错误有所帮助。</p>
-
+            
             <div class="clearfix"></div>
-            <hr class="nogutter">
         </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2017/11/26/Nginx配置相关结构划分的技巧/" style="float: left;">
-        ← Nginx配置相关结构划分的技巧
-    </a>
-    
-    
-    <a class="pull-right" href="/2017/11/01/docker 介绍/">
-        docker 介绍 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-
-
-</div>
+        
     </div>
 </section>
-
+<section id="process">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                <div class="timeline-centered">
+                    <div class="line"></div>
+                    <div class="present">Past</div>
+                    <div class="dot_tp"></div>
+                    <div class="born">Now</div>
+                    <div class="dot_bt"></div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">1</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2016/09/01  Blog start</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">2</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2017/01/01  Move blog to aliyun base on nginx</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">3</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2017/07/01  Move blog to github base on gitpage</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                <!-- timeline-centered -->
+            </div>
+        </div>
+    </div>
+</section>
 
       
 <!-- ============================ Footer =========================== -->
