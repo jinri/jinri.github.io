@@ -101,9 +101,11 @@
 				    
 				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
 				    
-				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(5)</small></a></li>
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
 				    
 				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
 				    
 				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
 				    
@@ -292,6 +294,74 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/07/12/Modsecurity日志写入redis/">Modsecurity 日志写入redis</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-07-12T10:00:10.000Z" itemprop="datePublished">
+          2017-07-12
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                         Modsecurity 日志写入redis
+1、要写入redis，机器上必须要安装有redis服务器。nginx+modsecurity的error.log和modsec_audit.log 原来都是写文件的因为频繁写入文件会造成nginx引擎性能下降（大流量测试流量存在瓶颈），故采用audit日志写入redis的方式。该功能修改了modsecurity下的3个源文件。
+123modsecurity/standalone/api.cm
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/07/12/Modsecurity日志写入redis/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/05/26/Ubuntu 命令 安装与卸载/">Ubuntu 命令 安装与卸载</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-05-26T14:00:05.000Z" itemprop="datePublished">
+          2017-05-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        Ubuntu是最常用的Linux系统之一，其中很多新手在安装软件的过程中，由于对Linux不熟悉，往往不知道如何卸载干净。
+
+废话不多说，直接上干货！命令
+1# apt-cache search
+  ● 最佳卸载命令
+1apt-get remove packagename --purge &amp;&amp; apt-get autoremove --purge &amp;&amp; apt-get clean
+卸载程序(包括配置文件)
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/05/26/Ubuntu 命令 安装与卸载/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -560,74 +630,9 @@ objdump -x -d  SimpleSection.o-x Display the contents of all headers
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/09/26/git diff/">git diff</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-09-26T02:00:10.000Z" itemprop="datePublished">
-          2016-09-26
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        在git提交环节，存在三大部分：working tree, index file, commit
-这三大部分中：
-
-working tree：就是你所工作在的目录，每当你在代码中进行了修改，working tree的状态就改变了。
-index file：是索引文件，它是连接working tree和commit的桥梁，每当我们使用git-add命令来登记后，index file的内容就改变了，此时index file就和working 
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/09/26/git diff/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/09/23/git 代码冲突常见解决方法/">git 代码冲突常见解决方法</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-09-23T02:00:10.000Z" itemprop="datePublished">
-          2016-09-23
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        git 代码冲突常见解决方法如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,在发布这个配置文件的时候,会发生代码冲突:
-123error: Your local changes to the following files would be overwritten by merge:        protected/config/main.phpPlease, commit your change
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/09/23/git 代码冲突常见解决方法/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
           <a class="pull-left" href="/page/2/">← Newer Posts</a>
-          
+          <a class="pull-right" href="/page/4/">Older Posts →</a>
         </nav>
     </div>
 </section>
