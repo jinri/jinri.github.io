@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Ubuntu 命令 安装与卸载 | callmev</title>
+  <title>Category: other | callmev</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -61,7 +61,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -285,85 +285,66 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2017-05-26T14:00:05.000Z" itemprop="datePublished">
-          2017-05-26
-      </time>
-    
-</span>
-                <h1>Ubuntu 命令 安装与卸载</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/dsc.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2></h2>
+                        <p>每一个不曾起舞的日子 都是对生命的辜负。</p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<p>Ubuntu是最常用的Linux系统之一，其中很多新手在安装软件的过程中，由于对Linux不熟悉，往往不知道如何卸载干净。</p>
-<hr>
-<p>废话不多说，直接上干货！<br>命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># apt-cache search</div></pre></td></tr></table></figure>
-<p>  ● 最佳卸载命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get remove packagename --purge &amp;&amp; apt-get autoremove --purge &amp;&amp; apt-get clean</div></pre></td></tr></table></figure>
-<p>卸载程序(包括配置文件)、卸载依赖、删除/var/cache/apt/archives下所有安装包</p>
-<p> ● 最佳升级软件命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get update &amp;&amp; apt-get upgrade</div></pre></td></tr></table></figure>
-<p>这样就可以完全卸载掉nginx包括配置文件</p>
-<p>apt卸载nginx方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo apt-get –purge remove nginx</div><div class="line">sudo apt-get autoremove dpkg –get-selections|grep nginx 罗列出与nginx相关的软件</div><div class="line">sudo apt-get –purge remove nginx-common</div><div class="line">sudo apt-get –purge remove nginx</div><div class="line">sudo apt-get --purge remove nginx-core</div><div class="line">ps -ef |grep nginx</div><div class="line">killall nginx </div><div class="line">sudo  find  /  -name  nginx*</div><div class="line">sudo rm -rf file</div></pre></td></tr></table></figure>
-<ol>
-<li>卸载方法</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 删除nginx，保留配置文件</div><div class="line">sudo apt-get remove nginx</div><div class="line">#删除配置文件</div><div class="line">rm -rf /etc/nginx</div><div class="line">卸载方法2.</div><div class="line">#删除nginx连带配置文件</div><div class="line">sudo apt-get purge nginx # Removes everything.</div><div class="line">#卸载不再需要的nginx依赖程序</div><div class="line">sudo apt-get autoremove</div></pre></td></tr></table></figure>
-<ol>
-<li>删除nginx连带配置文件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">sudo apt-get purge nginx # Removes everything.</div><div class="line">卸载不再需要的nginx依赖程序</div><div class="line">sudo apt-get autoremove</div><div class="line">这时候查看版本 nginx -v</div><div class="line">可以看到No such file</div><div class="line">这时候，如果系统还有些nginx文件</div><div class="line">这时候，如果系统还有些nginx文件没有删除，需要手动删除</div><div class="line">rm -rf /etc/nginx</div><div class="line">rm -rf /etc/init.d/nginx</div><div class="line">rm -rf /var/lib/nginx</div><div class="line">rm -rf /var/log/nginx</div><div class="line">rm -rf /etc/logrotate.d/nginx</div></pre></td></tr></table></figure>
-<p>扩展知识<br>apt常用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">● apt-cache show packagename 获取包的相关信息，如说明、大小、版本等</div><div class="line">  ● apt-cache depends packagename 了解使用依赖</div><div class="line">  ● apt-cache rdepends packagename 是查看该包被哪些包依赖</div><div class="line">  ● apt-get install packagename 安装包</div><div class="line">  ● apt-get install package=version 指定安装版本</div><div class="line">  ● apt-get install packagename --reinstall 重新安装包</div><div class="line">  ● apt-get remove packagename --purge 卸载程序，包括删除配置文件等</div><div class="line">  ● apt-get update 更新源,更新 /etc/apt/sources.list里的链接地址</div><div class="line">  ● apt-get upgrade -u 升级程序(不包括依赖关系改变的) -u 完整显示列表</div><div class="line">  ● apt-get dist-upgrade 升级程序(包括依赖关系改变的并且重新组织依赖关系)</div><div class="line">  ● apt-get clean 删除安装包(节约硬盘空间,下次安装需要重新下载包，软件包位置：/var/cache/apt/archives/)</div><div class="line">  ● apt-get autoclean 删除已卸载的安装包(Ubuntu14.04测试发现没起作用)</div><div class="line">  ● apt-get autoremove 卸载依赖的程序apt-get 安装位置</div><div class="line">  ● 下载的软件存放位置 /var/cache/apt/archives</div><div class="line">  ● 安装后软件默认位置 /usr/share</div><div class="line">  ● 可执行文件位置 /usr/bin</div><div class="line">  ● lib文件位置 /usr/lib</div></pre></td></tr></table></figure>
-<p>Linux 常用目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">● /boot 引导程序，内核等存放的目录</div><div class="line">  ● /sbin 超级用户可以使用的命令的目录</div><div class="line">  ● /bin 普通用户使用的命令</div><div class="line">  ● /lib 共享库目录</div><div class="line">  ● /dev 设备目录</div><div class="line">  ● /root 用户root的home目录</div><div class="line">  ● /etc 全局配置文件目录</div><div class="line">  ● /usr 用户安装目录</div><div class="line">  ● /usr/include C程序语言编译使用的头文件</div><div class="line">  ● /proc 系统内部一些信息</div><div class="line">  ● /var 经常变化目录 经常放日志文件，缓存文件</div><div class="line">  ● /tmp 临时目录 系统断电 或许目录被会清空</div><div class="line">  ● /lost+found 当系统崩溃的时候，在系统修复过程中需要恢复的文件，可能就会在这里被找到了，这个目录一般为空</div></pre></td></tr></table></figure>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2017/07/12/Modsecurity日志写入redis/" style="float: left;">
-        ← Modsecurity 日志写入redis
-    </a>
-    
-    
-    <a class="pull-right" href="/2017/04/26/字符编码方式发展历程（转）/">
-        字符编码方式发展历程 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-	var disqus_shortname = 'callmev';
-	window.addEventListener('load', function(){
-		(function(){
-			var dsq = document.createElement('script');
-			dsq.type = 'text/javascript';
-			dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		}());
-	});
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-
-
-</div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/02/07/读书清单/">读书清单</a></h4>
+                            
+                            <p><time datetime="2018-02-07T02:00:00.000Z"><a href="/2018/02/07/读书清单/">2018-02-07</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>弱小和无知不是生存的障碍，傲慢才是。</p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 

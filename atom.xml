@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.callmev.cn/"/>
-  <updated>2018-02-05T03:46:35.273Z</updated>
+  <updated>2018-02-07T07:21:37.020Z</updated>
   <id>http://www.callmev.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读书清单</title>
+    <link href="http://www.callmev.cn/2018/02/07/%E8%AF%BB%E4%B9%A6%E6%B8%85%E5%8D%95/"/>
+    <id>http://www.callmev.cn/2018/02/07/读书清单/</id>
+    <published>2018-02-07T02:00:00.000Z</published>
+    <updated>2018-02-07T07:21:37.020Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>通读大部分的应该只占%50</li><li>部分阅读的占%30</li><li>偶尔翻阅作为工具手册的占%20</li></ul><h2 id="2015-2016"><a href="#2015-2016" class="headerlink" title="2015 ~ 2016"></a><em>2015 ~ 2016</em></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">深入理解计算机系统</div><div class="line">算法导论</div><div class="line">编程珠玑</div><div class="line">HTTP 权威指南</div><div class="line">TCP/IP 详解卷一</div><div class="line">TCP/IP 进行国际互联</div><div class="line">UNIX 网络编程</div><div class="line">Linux 高性能服务器编程</div><div class="line">Linux 系统编程</div><div class="line">Linux 高级程序设计</div><div class="line">Linux C编程实战</div><div class="line">C++ primer plus</div><div class="line">C++ primer</div><div class="line">Java 编程思想</div><div class="line">Java 核心技术</div><div class="line">Vim 实用技巧</div><div class="line">七周七语言：理解多种编程范型</div><div class="line">淘宝技术这十年</div><div class="line">大型网站技术架构</div><div class="line">github 入门与实践</div><div class="line">数学之美</div><div class="line">一网情深：李开复与学生的网上对话</div><div class="line">做最好的自己</div></pre></td></tr></table></figure><h2 id="2016-2017"><a href="#2016-2017" class="headerlink" title="2016 ~ 2017"></a><em>2016 ~ 2017</em></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">C 现代编程</div><div class="line">轻量级Java EE企业应用实战</div><div class="line">Spring in action </div><div class="line">Spring 技术内幕</div><div class="line">Maven 实战</div><div class="line">Oracle 查询优化改写技巧与案例</div><div class="line">锋利的 JQuery</div><div class="line">JavaScript+DOM 编程艺术</div><div class="line">JavaScript 权威指南</div><div class="line">JavaScript 高级程序设计</div><div class="line">程序员的自我修养</div><div class="line">只是为了好玩：Linux之父林纳斯自传</div><div class="line">应用密码学  协议、算法与C源程序 </div><div class="line">网站安全攻防秘笈：防御黑客和保护用户的100条超级策略</div><div class="line">深入理解SSL-TLS技术内幕</div><div class="line">破坏之王-DDoS攻击与防范深度剖析</div><div class="line">Web应用安全权威指南</div><div class="line">精通脚本黑客</div><div class="line">白帽子讲Web安全</div><div class="line">Python黑帽子:黑客与渗透测试编程之道</div><div class="line">ModSecurity中文手册</div><div class="line">黑客渗透笔记完整版</div><div class="line">亿级流量网站架构</div><div class="line">正则指引</div><div class="line">精通正则表达式</div><div class="line">Lua程序设计</div><div class="line">高级Bash脚本编程指南</div><div class="line">Redis 实战</div><div class="line">Python核心编程</div><div class="line">《Pro Git》中文版</div><div class="line">Mysql 排错指南</div><div class="line">腾讯传</div><div class="line">三体</div></pre></td></tr></table></figure><h2 id="2017-2018"><a href="#2017-2018" class="headerlink" title="2017 ~ 2018"></a><em>2017 ~ 2018</em></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">第一本Docker书 </div><div class="line">Docker入门白皮书</div><div class="line">Docker生产环境实践指南</div><div class="line">Docker技术入门与实战</div><div class="line">docker_practice</div><div class="line">Web 安全之机器学习入门</div><div class="line">Linux 多线程服务端编程：使用muduo C++网络库(陈硕)</div><div class="line">GOF 设计模式</div><div class="line">软技能：代码之外的生存指南</div><div class="line">OpenResty-Best-Practices</div><div class="line">深入理解Nginx模块开发与架构解析</div><div class="line">nginx源码剖析</div><div class="line">nginx核心讲解</div><div class="line">Nginx教程从入门到精通</div><div class="line">深入剖析Nginx</div><div class="line">跟我学Nginx+Lua开发</div><div class="line">agentzh-nginx-tutorials-zhcn</div><div class="line">Go语言编程</div><div class="line">代码大全</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;通读大部分的应该只占%50&lt;/li&gt;
+&lt;li&gt;部分阅读的占%30&lt;/li&gt;
+&lt;li&gt;偶尔翻阅作为工具手册的占%20&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2015-2016&quot;&gt;&lt;a href=&quot;#2015-2016&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+      <category term="other" scheme="http://www.callmev.cn/categories/other/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>F5 与 Ctrl+F5 区别</title>
@@ -236,6 +264,29 @@
   </entry>
   
   <entry>
+    <title>ubuntu12.04默认gcc4.6.3升级到gcc4.8</title>
+    <link href="http://www.callmev.cn/2017/10/26/ubuntu12.04%E9%BB%98%E8%AE%A4gcc4.6.3%E5%8D%87%E7%BA%A7%E5%88%B0gcc4.8/"/>
+    <id>http://www.callmev.cn/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/</id>
+    <published>2017-10-26T14:00:10.000Z</published>
+    <updated>2017-12-28T09:07:59.932Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconf</div><div class="line"></div><div class="line">apt-get install python-software-properties -y</div><div class="line">apt-get install software-properties-common -y</div><div class="line">add-apt-repository ppa:ubuntu-toolchain-r/test</div><div class="line"></div><div class="line">apt-get update</div><div class="line">apt-get install gcc-4.8 g++-4.8</div><div class="line">#apt-get install gcc-4.8-multilib g++-4.8-multilib gcc-4.8-doc</div><div class="line"></div><div class="line">#update-alternatives --remove-all gcc </div><div class="line">#update-alternatives --remove-all g++</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20</div><div class="line"></div><div class="line">update-alternatives --config gcc</div><div class="line"></div><div class="line">update-alternatives --config g++</div><div class="line"></div><div class="line">gcc --version</div><div class="line"></div><div class="line">#apt-get update</div><div class="line">#apt-get upgrade -y </div><div class="line">#apt-get dist-upgrade</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+      
+    
+    </summary>
+    
+      <category term="ubuntu" scheme="http://www.callmev.cn/categories/ubuntu/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>arp静态绑定</title>
     <link href="http://www.callmev.cn/2017/10/26/arp%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A/"/>
     <id>http://www.callmev.cn/2017/10/26/arp静态绑定/</id>
@@ -255,29 +306,6 @@
     </summary>
     
       <category term="windows" scheme="http://www.callmev.cn/categories/windows/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu12.04默认gcc4.6.3升级到gcc4.8</title>
-    <link href="http://www.callmev.cn/2017/10/26/ubuntu12.04%E9%BB%98%E8%AE%A4gcc4.6.3%E5%8D%87%E7%BA%A7%E5%88%B0gcc4.8/"/>
-    <id>http://www.callmev.cn/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/</id>
-    <published>2017-10-26T14:00:10.000Z</published>
-    <updated>2017-12-28T09:07:59.932Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconf</div><div class="line"></div><div class="line">apt-get install python-software-properties -y</div><div class="line">apt-get install software-properties-common -y</div><div class="line">add-apt-repository ppa:ubuntu-toolchain-r/test</div><div class="line"></div><div class="line">apt-get update</div><div class="line">apt-get install gcc-4.8 g++-4.8</div><div class="line">#apt-get install gcc-4.8-multilib g++-4.8-multilib gcc-4.8-doc</div><div class="line"></div><div class="line">#update-alternatives --remove-all gcc </div><div class="line">#update-alternatives --remove-all g++</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20</div><div class="line"></div><div class="line">update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20</div><div class="line"></div><div class="line">update-alternatives --config gcc</div><div class="line"></div><div class="line">update-alternatives --config g++</div><div class="line"></div><div class="line">gcc --version</div><div class="line"></div><div class="line">#apt-get update</div><div class="line">#apt-get upgrade -y </div><div class="line">#apt-get dist-upgrade</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-      
-    
-    </summary>
-    
-      <category term="ubuntu" scheme="http://www.callmev.cn/categories/ubuntu/"/>
     
     
   </entry>
@@ -469,29 +497,6 @@
     </summary>
     
       <category term="linux" scheme="http://www.callmev.cn/categories/linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx+Modsecurity 403带规则跳转实现</title>
-    <link href="http://www.callmev.cn/2017/07/24/Nginx+Modsecurity%20403%E5%B8%A6%E8%A7%84%E5%88%99%E8%B7%B3%E8%BD%AC%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://www.callmev.cn/2017/07/24/Nginx+Modsecurity 403带规则跳转实现/</id>
-    <published>2017-07-24T02:00:10.000Z</published>
-    <updated>2017-12-28T09:02:24.413Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Nginx-Modsecurity-403带规则跳转实现"><a href="#Nginx-Modsecurity-403带规则跳转实现" class="headerlink" title="Nginx+Modsecurity 403带规则跳转实现"></a>Nginx+Modsecurity 403带规则跳转实现</h2><p>Nginx+Modsecurity403跳转实现基于modsecurity重定向，而实现这个重定向必须解决之前出现的modsecurity bug <a href="https://github.com/SpiderLabs/ModSecurity/issues/582" target="_blank" rel="external"><strong><strong>post500</strong></strong></a></p><ul><li><a href="https://github.com/jinri/jinri.github.io/blob/master/res/post500.diff" target="_blank" rel="external">modsecurity源码更改</a></li></ul><p>为实现跳转，须在modsecurity配置文件中加入如下规则：</p><ul><li>1、阶段1，阶段2的默认动作修改为pass才可以带规则跳转</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecDefaultAction phase:1,log,auditlog,pass</div><div class="line">SecDefaultAction phase:2,log,auditlog,pass</div></pre></td></tr></table></figure><ul><li>2、定义变量hit_block_count，hit_all_ruleid并初始化。这两个变量的作用域为一次请求。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecAction &quot;id:&apos;300101&apos;,phase:1,t:none,setvar:tx.hit_block_count=0,nolog,pass&quot;</div><div class="line">SecAction &quot;id:&apos;300102&apos;,phase:1,t:none,setvar:tx.hit_all_ruleid=,nolog,pass&quot;</div></pre></td></tr></table></figure><ul><li>3、为实现规则ip的统计和命中次数的统计，需要在每条规则后加入</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;,setvar:tx.hit_block_count=+1,setvar:tx.hit_all_ruleid=%&#123;tx.hit_all_ruleid&#125;+%&#123;rule.id&#125;&quot;</div></pre></td></tr></table></figure><p>需要加入上述设置的规则较多，故采用脚本实现。<br><a href="https://github.com/jinri/jinri.github.io/blob/master/res/modsec_rules_change.sh" target="_blank" rel="external">modsec_rules_change.sh</a></p><p>本次加入上述配置的modsecurity核心配置文件为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">modsecurity_crs_20_protocol_violations.conf</div><div class="line">modsecurity_crs_21_protocol_anomalies.conf  </div><div class="line">modsecurity_crs_23_request_limits.conf </div><div class="line">modsecurity_crs_35_bad_robots.conf  </div><div class="line">modsecurity_crs_40_generic_attacks.conf  </div><div class="line">modsecurity_crs_41_sql_injection_attacks.conf  </div><div class="line">modsecurity_crs_41_xss_attacks.conf  </div><div class="line">modsecurity_crs_42_tight_security.conf  </div><div class="line">modsecurity_crs_45_trojans.conf</div></pre></td></tr></table></figure><p>以后有需想加入该设置的配置文件，把该脚本放在相同目录，配置conf_list.config，再运行modsec_rules_change.sh脚本即可。</p><ul><li>4、在阶段2阻断</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecRule  TX:hit_block_count &quot;@ge 1&quot; &quot;id:&apos;300103&apos;,nolog, pass, phase:2, t:none, setvar:&apos;tx.redirect_url_args=rule_id&amp;%&#123;tx.hit_block_count&#125;%&#123;tx.hit_all_ruleid&#125;&amp;ip&amp;%&#123;tx.real_ip&#125;&amp;time&amp;%&#123;TIME_EPOCH&#125;&amp;host&amp;%&#123;request_headers.host&#125;&apos;,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;&quot;</div><div class="line">SecRule  TX:redirect_url_args &quot;!@streq 0&quot; &quot;nolog,deny,phase:2,id:&apos;300104&apos;,t:none,t:base64Encode,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;,redirect:http://172.16.2.107?act=intercept&amp;url=%&#123;REQUEST_URI&#125;&amp;args=%&#123;MATCHED_VAR&#125;&quot;</div></pre></td></tr></table></figure><p>在阶段4阻断</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SecRule  TX:hit_block_count &quot;@ge 1&quot; &quot;id:&apos;300105&apos;,nolog, pass, phase:4, t:none, setvar:&apos;tx.redirect_url_args=rule_id&amp;%&#123;tx.hit_block_count&#125;%&#123;tx.hit_all_ruleid&#125;&amp;ip&amp;%&#123;tx.real_ip&#125;&amp;time&amp;%&#123;TIME_EPOCH&#125;&amp;host&amp;%&#123;request_headers.host&#125;&apos;,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;&quot;</div><div class="line">SecRule  TX:redirect_url_args &quot;!@streq 0&quot; &quot;nolog,deny,phase:4,id:&apos;300106&apos;,t:none,t:base64Encode,msg:&apos;hit rule time hit_block_count=%&#123;tx.hit_block_count&#125;,hit all rule id =%&#123;tx.hit_all_ruleid&#125;&apos;,redirect:http://172.16.2.107?act=intercept&amp;url=%&#123;REQUEST_URI&#125;&amp;args=%&#123;MATCHED_VAR&#125;&quot;</div></pre></td></tr></table></figure><ul><li><p>5、重定向链接需要根据实际环境做相应修改，跳转链接参数部分做了base64编码。</p></li><li><p>6、测试： 节点代理一个网站 www.gengjunfei.com<br>浏览器中采用如下方式访问：</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.gengjunfei.com/?id=%27 or %271%27=%271</div></pre></td></tr></table></figure><p>这时跳转至链接：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://192.168.60.128/?act=intercept&amp;url=/?id=%27%20or%20%271%27=%271&amp;args=cnVsZV9pZCY1Kzk1MDkwMSs5NTkwNzErOTgxMjQ0Kzk4MTI0Mis5ODEyNDMmaXAmMTcyLjE2LjIuMTcmdGltZSYxNDk2NjQ1NzIxJmhvc3Qmd3d3LmdlbmdqdW5mZWkuY29t</div></pre></td></tr></table></figure><p>对args=后面的参数base64解码得：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rule_id&amp;5+950901+959071+981244+981242+981243&amp;ip&amp;172.16.2.17&amp;time&amp;1496645721&amp;host&amp;www.gengjunfei.com</div></pre></td></tr></table></figure><p>查看nginx error日志 ，正好中了5条规则。</p><p><a href="https://github.com/jinri/jinri.github.io/blob/master/res/403_err.png" target="_blank" rel="external">nginx_403.error</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Nginx-Modsecurity-403带规则跳转实现&quot;&gt;&lt;a href=&quot;#Nginx-Modsecurity-403带规则跳转实现&quot; class=&quot;headerlink&quot; title=&quot;Nginx+Modsecurity 403带规则跳转实现&quot;&gt;&lt;/a&gt;Ng
-      
-    
-    </summary>
-    
-      <category term="nginx" scheme="http://www.callmev.cn/categories/nginx/"/>
     
     
   </entry>
