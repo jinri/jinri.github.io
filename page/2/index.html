@@ -105,7 +105,7 @@
 				    
 				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(9)</small></a></li>
 				    
-				    <li><a href="/categories/other/" class="animsition-link">other<small>(1)</small></a></li>
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
 				    
@@ -320,11 +320,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">ubuntu12.04默认gcc4.6.3升级到gcc4.8</a></h3>
+                    <h3><a href="/2017/10/27/数字证书文件cer和pfx的区别/">数字证书文件cer和pfx的区别</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2017-10-26T14:00:10.000Z" itemprop="datePublished">
-          2017-10-26
+      <time datetime="2017-10-27T14:00:10.000Z" itemprop="datePublished">
+          2017-10-27
       </time>
     
 </span>
@@ -333,12 +333,29 @@
                 <div class="col-md-8">
                     <p class="index-excerpt">
                       
-                        123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -yapt-get install sof
+                        作为文件形式存在的证书一般有这几种格式：
+
+带有私钥的证书
+
+
+由Public Key Cryptography Standards #12，PKCS#12标准定义，包含了公钥和私钥的二进制格式的证书形式，以pfx作为证书文件后缀名。
+
+
+二进制编码的证书
+
+
+证书中没有私钥，DER 编码二进制格式的证书文件，以cer作为证书文件后缀名。
+
+
+Base64编码的证书
+
+
+证书中没有私钥，BASE64 编码格式的证书文件，也是以cer作为
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">Read More...</a>
+                        <a href="/2017/10/27/数字证书文件cer和pfx的区别/">Read More...</a>
                     </p>
                     
                 </div>
@@ -385,6 +402,36 @@ Windows的命令提示符下，键入命令1ipconfig /all
                     
                     <p class="pull-right readMore">
                         <a href="/2017/10/26/arp静态绑定/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">ubuntu12.04默认gcc4.6.3升级到gcc4.8</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-26T14:00:10.000Z" itemprop="datePublished">
+          2017-10-26
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        123456789101112131415161718192021222324252627apt-get updateapt-get install libgmp-dev libmpfr4 libmpfr-dev libmpc-dev libmpc2 libtool m4 bison flex autoconfapt-get install python-software-properties -yapt-get install sof
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">Read More...</a>
                     </p>
                     
                 </div>
@@ -623,44 +670,6 @@ modsecurity.conf配置更改
                     
                     <p class="pull-right readMore">
                         <a href="/2017/08/17/npm 指定镜像/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/08/02/运维常用命令/">运维常用命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-08-02T02:00:00.000Z" itemprop="datePublished">
-          2017-08-02
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        查看当前访问日志
-1tail -f /logs/access.log
-查看某个IP的访问日志
-1tail -f /logs/access.log | grep 127.0.0.1
-查看HTTP返回状态为502的日志
-1tail -f /logs/access.log | grep &apos;HTTP/1.1&quot; 502&apos;
-查看当前错误日志
-1tail -f /logs/error.log
-查看error.log里面的
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/08/02/运维常用命令/">Read More...</a>
                     </p>
                     
                 </div>
