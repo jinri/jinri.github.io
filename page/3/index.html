@@ -101,6 +101,8 @@
 				    
 				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
 				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
 				    
 				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(10)</small></a></li>
@@ -316,6 +318,37 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">nginx 104 Connection reset by peer 问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-24T02:00:10.000Z" itemprop="datePublished">
+          2017-09-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        nginx 报 “recv() failed (104: Connection reset by peer)”问题排查现象：nginx在加入nginx_upstream_check_module健康检查模块后error.log中经常出现recv() failed (104: Connection reset by peer)错误
+12378:2017/09/12 14:57:40 [error] 34722#0: recv() fail
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/24/nginx 104 Connection reset by peer 问题/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -613,45 +646,6 @@ modsecurity源码更改
                     
                     <p class="pull-right readMore">
                         <a href="/2017/01/11/小重山/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/01/02/nginx 变量学习/">nginx 变量学习</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-01-02T02:00:00.000Z" itemprop="datePublished">
-          2017-01-02
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        1、nginx改变编译选项，或增加模块
-niginx -V 可见版本信息，以及目前的编译信息
-
-重新configure make make install 会覆盖安装，但不会覆盖nginx.conf
-2、设置用户变量
-set $a ‘hi’；
-
-（set会在进入{}时执行，类似js中预加载）
-3、安装echo组件，在编译时，加上–add-module=/path…
-http://wiki.nginx.org/HttpEchoModule
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/01/02/nginx 变量学习/">Read More...</a>
                     </p>
                     
                 </div>
