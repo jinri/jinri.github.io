@@ -97,13 +97,13 @@
 				    
 				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
 				    
-				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(1)</small></a></li>
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
 				    
-				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(9)</small></a></li>
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/other/" class="animsition-link">other<small>(1)</small></a></li>
 				    
@@ -448,6 +448,47 @@ Expires、Last-Modified/If-Modified-Since和ETag/If-None-Match这些HTTP Headers
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2017/12/12/Nginx 缓存问题/">Nginx 缓存问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-12-12T02:00:00.000Z" itemprop="datePublished">
+          2017-12-12
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        
+[#p1 1 expires浏览器缓存不一致]
+[#p2 2 缓存不全]
+[#p3 3 缓存过分]
+[#p4 4 缓存目录过多]
+[#p5 5 删除缓存配置有误]
+[#p6 6 多余配置]
+
+1 expires浏览器缓存不一致nginx 的网站配置中
+1expires 10m;
+该配置影响浏览器缓存，主要影响Cache-Control Expires 这两个字段
+12345Cache-Control: max-age=600Conte
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/12/12/Nginx 缓存问题/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2017/11/26/Nginx配置相关结构划分的技巧/">Nginx配置相关结构划分的技巧</a></h3>
                     <span>
                         <span class="post-meta">
@@ -517,6 +558,36 @@ Nginx配置需要一定的技巧，在不断的使用和维护中就会发现这
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2017/11/02/Waf docker 镜像构建/">Waf docker镜像构建</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-02T14:00:10.000Z" itemprop="datePublished">
+          2017-11-02
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        1、基于Ubuntu12.04的waf docker镜像构建12345678910111213141516171819202122232425262728FROM ubuntu:12.04MAINTAINER The bdwaf project &lt;gjf@chinabluedon.cn&gt;COPY sources.list /etc/apt/ RUN apt-get update \ &amp;&amp; apt-get -y
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/02/Waf docker 镜像构建/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2017/11/01/docker 介绍/">docker 介绍</a></h3>
                     <span>
                         <span class="post-meta">
@@ -567,84 +638,6 @@ Docker 自开源后受到广泛的关注和讨论，至今
                     
                     <p class="pull-right readMore">
                         <a href="/2017/10/29/我的vim设置/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/10/28/nginx配置http为1.0到1.1/">nginx配置http为1.0到1.1</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-10-28T14:00:10.000Z" itemprop="datePublished">
-          2017-10-28
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        nginx配置http为1.0到1.1，主要是为了长连接有效。
-对于HTTP代理，proxy_http_version指令应该设置为“1.1”，同时“Connection”头的值也应被清空。12345678910111213141516upstream http_backend &#123;    server 127.0.0.1:8080;    keepalive 16;&#125;server &#123;    ...    l
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/10/28/nginx配置http为1.0到1.1/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/10/27/数字证书文件cer和pfx的区别/">数字证书文件cer和pfx的区别</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-10-27T14:00:10.000Z" itemprop="datePublished">
-          2017-10-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        作为文件形式存在的证书一般有这几种格式：
-
-带有私钥的证书
-
-
-由Public Key Cryptography Standards #12，PKCS#12标准定义，包含了公钥和私钥的二进制格式的证书形式，以pfx作为证书文件后缀名。
-
-
-二进制编码的证书
-
-
-证书中没有私钥，DER 编码二进制格式的证书文件，以cer作为证书文件后缀名。
-
-
-Base64编码的证书
-
-
-证书中没有私钥，BASE64 编码格式的证书文件，也是以cer作为
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/10/27/数字证书文件cer和pfx的区别/">Read More...</a>
                     </p>
                     
                 </div>

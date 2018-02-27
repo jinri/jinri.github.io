@@ -97,13 +97,13 @@
 				    
 				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
 				    
-				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(1)</small></a></li>
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
 				    
-				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(9)</small></a></li>
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/other/" class="animsition-link">other<small>(1)</small></a></li>
 				    
@@ -316,6 +316,79 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/08/17/npm 指定镜像/">npm 指定镜像</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-08-17T02:00:00.000Z" itemprop="datePublished">
+          2017-08-17
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        npm 指定镜像12npm cache clean --forcenpm cache clear --force &amp;&amp; npm install --no-shrinkwrap --update-binary
+镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:
+
+通过config命令
+
+12npm config set registry https://registry.npm
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/08/17/npm 指定镜像/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/08/02/运维常用命令/">运维常用命令</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-08-02T02:00:00.000Z" itemprop="datePublished">
+          2017-08-02
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        查看当前访问日志
+1tail -f /logs/access.log
+查看某个IP的访问日志
+1tail -f /logs/access.log | grep 127.0.0.1
+查看HTTP返回状态为502的日志
+1tail -f /logs/access.log | grep &apos;HTTP/1.1&quot; 502&apos;
+查看当前错误日志
+1tail -f /logs/error.log
+查看error.log里面的
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/08/02/运维常用命令/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -579,71 +652,6 @@ http://wiki.nginx.org/HttpEchoModule
                     
                     <p class="pull-right readMore">
                         <a href="/2017/01/02/nginx 变量学习/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/29/openssh nginx 升级/">openssh nginx 升级</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-29T13:00:05.000Z" itemprop="datePublished">
-          2016-11-29
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        Linux ubuntu 升级openssh nginx1. 升级openssh查看已安装的版本信息：12#ssh -V OpenSSH_5.9p1 Debian-5ubuntu1, OpenSSL 1.0.1 14 Mar 2012
-这里把openssh升级到7.6p1版本：
-123456789cd /tmpcp /etc/ssh/ /etc/ssh_bak/wget https://openbsd.hk/pub/OpenBSD/Op
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/29/openssh nginx 升级/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/26/objdump 使用/">objdump 使用</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-26T13:00:05.000Z" itemprop="datePublished">
-          2016-11-26
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        objdump -h SimpleSection.o查看段表信息（objdump有省略）
-objdump -x -d  SimpleSection.o-x Display the contents of all headers
--d Display assembler contents of executable sections
--s Display the full contents of all sections requeste
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/26/objdump 使用/">Read More...</a>
                     </p>
                     
                 </div>
