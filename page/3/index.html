@@ -107,7 +107,7 @@
 				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
 				    
-				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(10)</small></a></li>
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/other/" class="animsition-link">other<small>(1)</small></a></li>
 				    
@@ -322,6 +322,41 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/25/Nginx+Modsecurity缓存上传文件文件/">Nginx+Modsecurity缓存上传文件文件</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-25T02:00:10.000Z" itemprop="datePublished">
+          2017-09-25
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        创建上传文件目录
+12mkdir /root/uploadfilemkdir /usr/gjf/tmp/uploaddir
+安装 lua5.1 包
+1sudo apt-get install lua5.1
+modsecurity.conf配置更改
+1234SecUploadDir /usr/gjf/tmp/uploaddirSecUploadKeepFiles OnSecUploadFileMode 0600SecDebugLogLev
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/25/Nginx+Modsecurity缓存上传文件文件/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -624,36 +659,6 @@ WAF，即Web Application Firewall（Web应用防火墙），是一种针对Web�
                     
                     <p class="pull-right readMore">
                         <a href="/2017/04/26/字符编码方式发展历程（转）/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/02/17/vi_openssl_err/">vim打开报openssl error 错误</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-02-17T04:50:10.000Z" itemprop="datePublished">
-          2017-02-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        vim打开报openssl错误123observer@bdwaf:~$ vi vi: /usr/local/lib/libcrypto.so.1.0.0: no version information available (required by /usr/lib/libpython2.7.so.1.0)vi: /usr/local/lib/libssl.so.1.0.0: no version information availabl
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/02/17/vi_openssl_err/">Read More...</a>
                     </p>
                     
                 </div>
