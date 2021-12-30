@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Ubuntu 更新错误解决方法 | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-11-23T14:00:10.000Z" itemprop="datePublished">
+          2017-11-23
+      </time>
+    
+</span>
+                <h1>Ubuntu 更新错误解决方法</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<ul>
+<li>在Ubuntu和其它基于Ubuntu的Linux发行版中，更新错误是一个共性的错误，也经常发生。这些错误出现的原因多种多样，修复起来也很简单。在本文中，我们将见到Ubuntu中各种类型频繁发生的更新错误以及它们的修复方法。</li>
+</ul>
+<ol>
+<li>合并列表问题。<br> 当你在终端中运行更新命令时，你可能会碰到这个错误“合并列表错误”，就像下面这样：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:Encountered a section with no Package: header,</span><br><span class="line">E:Problem with MergeList /var/lib/apt/lists/archive.ubuntu.comubuntudistspreciseuniversebinary-i386Packages,</span><br><span class="line">E:The package lists or status file could not be parsed or opened.’</span><br></pre></td></tr></table></figure>
+
+<p>可以使用以下命令来修复该错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. sudo rm -r /var/lib/apt/lists/*</span><br><span class="line">2. sudo apt-get clean &amp;&amp; sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载仓库信息失败 -1.<br>实际上，有两种类型的下载仓库信息失败错误。如果你的错误是这样的：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">W:Failed to fetch bzip2:/var/lib/apt/lists/partial/in.archive.ubuntu.comubuntudistsoneiricrestrictedbinary-i386Packages Hash Sum mismatch,</span><br><span class="line">W:Failed to fetch bzip2:/var/lib/apt/lists/partial/in.archive.ubuntu.comubuntudistsoneiricmultiversebinary-i386Packages Hash Sum mismatch,</span><br><span class="line">E:Some index files failed to download. They have been ignored, or old ones used instead</span><br></pre></td></tr></table></figure>
+
+<p>那么，你可以用以下命令修复：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. sudo rm -rf /var/lib/apt/lists/*</span><br><span class="line">2. sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>部分更新错误.<br>在终端中运行更新会出现部分更新错误：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Not all updates can be installed</span><br><span class="line">Run a partial upgrade, to install as many updates as possible</span><br></pre></td></tr></table></figure>
+
+<p>在终端中运行以下命令来修复该错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. sudo apt-get install -f</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>加载共享库时发生错误.<br>该错误更多是安装错误，而不是更新错误。如果尝试从源码安装程序，你可能会碰到这个错误：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error while loading shared libraries:</span><br><span class="line">cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>该错误可以通过在终端中运行以下命令来修复：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. sudo /sbin/ldconfig -v</span><br></pre></td></tr></table></figure>
+
+<p>你可以在这里查找到更多详细内容加载共享库时发生错误。</p>
+<ol start="5">
+<li>无法获取锁 /var/cache/apt/archives/lock.<br>在另一个程序在使用APT时，会发生该错误。假定你正在Ubuntu软件中心安装某个东西，然后你又试着在终端中运行apt。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/cache/apt/archives/lock – open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock directory /var/cache/apt/archives/</span><br></pre></td></tr></table></figure>
+
+<p>通常，只要你把所有其它使用apt的程序关了，这个问题就会好的。但是，如果问题持续，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure>
+
+<p>如果上面的命令不起作用，可以试试这个命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. sudo killall apt-get</span><br></pre></td></tr></table></figure>
+
+<p>关于该错误的更多信息，可以在这里找到。</p>
+<ol start="6">
+<li>GPG错误： 下列签名无法验证.<br>在添加一个PPA时，可能会导致以下错误GPG错误： 下列签名无法验证，这通常发生在终端中运行更新时：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">W: GPG error: http://repo.mate-desktop.org saucy InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 68980A0EA10B4DE8</span><br></pre></td></tr></table></figure>
+
+<p>我们所要做的，就是获取系统中的这个公钥，从信息中获取密钥号。在上述信息中，密钥号为68980A0EA10B4DE8。该密钥可通过以下方式使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8</span><br></pre></td></tr></table></figure>
+
+<p>在添加密钥后，再次运行更新就没有问题了。</p>
+<ol start="7">
+<li>BADSIG错误<br>另外一个与签名相关的Ubuntu更新错误是BADSIG错误，它看起来像这样：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://extras.ubuntu.com precise Release: The following signatures were invalid: BADSIG 16126D3A3E5C1192 Ubuntu Extras Archive Automatic Signing Key</span><br><span class="line">W: GPG error: http://ppa.launchpad.net precise Release:</span><br><span class="line">The following signatures were invalid: BADSIG 4C1CBC1B69B0E2F4 Launchpad PPA for Jonathan French W: Failed to fetch http://extras.ubuntu.com/ubuntu/dists/precise/Release</span><br></pre></td></tr></table></figure>
+
+<p>要修复该BADSIG错误，请在终端中使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. sudo apt-get clean</span><br><span class="line">  2. cd /var/lib/apt</span><br><span class="line">  3. sudo mv lists oldlist</span><br><span class="line">  4. sudo mkdir -p lists/partial</span><br><span class="line">  5. sudo apt-get clean</span><br><span class="line">  6. sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>invalid: KEYEXPIRED 错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">W: GPG error: http://repo.mysql.com precise Release: The following signatures were invalid: KEYEXPIRED 1487236823 KEYEXPIRED 1487236823 KEYEXPIRED 1487236823</span><br></pre></td></tr></table></figure>
+<p>解决方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key list | grep &quot;expired: &quot;</span><br><span class="line">sudo apt-key adv --keyserver keys.gnupg.net --recv-keys [KEY]</span><br><span class="line"></span><br><span class="line">sudo apt-key list  | grep &quot;expired: &quot; | sed -ne &#x27;s|pub .*/\([^ ]*\) .*|\1|gp&#x27; | xargs -n1 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>Can’t locate Debconf/Db.pm 12.04<br>No file name for libpam0g</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo dpkg -i /var/cache/apt/archives/*.deb</span><br><span class="line">sudo dpkg --configure -a</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line"></span><br><span class="line">sudo rm -f /etc/apt/sources.list.d/*</span><br><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
+
+
+
+<p>本文汇集了可能会碰到的Ubuntu更新错误,希望这会对你处理这些错误有所帮助。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2017/11/26/Nginx%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E7%BB%93%E6%9E%84%E5%88%92%E5%88%86%E7%9A%84%E6%8A%80%E5%B7%A7/" style="float: left;">
+        ← Nginx配置相关结构划分的技巧
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/11/02/Waf%20docker%20%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA/">
+        Waf docker镜像构建 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

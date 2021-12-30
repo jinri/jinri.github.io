@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>LINUX用户登录后精确命令记录 | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-09-26T14:00:05.000Z" itemprop="datePublished">
+          2017-09-26
+      </time>
+    
+</span>
+                <h1>LINUX用户登录后精确命令记录</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="LINUX用户登录后精确命令记录-history-按时间、用户显示命令记录"><a href="#LINUX用户登录后精确命令记录-history-按时间、用户显示命令记录" class="headerlink" title="LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)"></a>LINUX用户登录后精确命令记录(history 按时间、用户显示命令记录)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 设置保存历史命令的文件大小</span><br><span class="line">export HISTFILESIZE=10000000</span><br><span class="line"></span><br><span class="line"># 保存历史命令条数</span><br><span class="line">export HISTSIZE=1000000</span><br><span class="line"></span><br><span class="line"># 实时记录历史命令，默认只有在用户退出之后才会统一记录，很容易造成多个用户间的相互覆盖。</span><br><span class="line">export PROMPT_COMMAND=&quot;history -a&quot;</span><br><span class="line"></span><br><span class="line"># 记录每条历史命令的执行时间</span><br><span class="line">export HISTTIMEFORMAT=&quot;%Y-%m-%d_%H:%M:%S &quot;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>%Y: 4位数的年份；</li>
+<li>%m: 2位数的月份数；</li>
+<li>%d: 2位数的一个月中的日期数；</li>
+<li>%H：2位数的小时数（24小时制）；</li>
+<li>%M：2位数的分钟数；</li>
+<li>%S：2位数的秒数</li>
+</ul>
+<p>主要功能：</p>
+<ul>
+<li>可以记录哪个ip和时间(精确到秒)作了哪些命令</li>
+<li>通过用户登录时候，重新定义HISTFILE</li>
+<li>HISTFILE文件名包含登录用户名，ip,登录时间(精确到秒)等</li>
+<li>这样即使相同的用户从不同ip、在不同的时间登录都会被记录</li>
+<li>可以记录每条命令的开始执行时间</li>
+</ul>
+<p>把下面的代码直接粘贴到/etc/profile后面就可以了
+　</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#history</span><br><span class="line">　　export HISTTIMEFORMAT=&quot;[%Y.%m.%d %H:%M:%S]&quot;</span><br><span class="line">　　USER_IP=`who -u am i 2&gt;/dev/null| awk &#x27;&#123;print $NF&#125;&#x27;|sed -e &#x27;s/[()]//g&#x27;`</span><br><span class="line">　　HISTDIR=/var/log/.hist</span><br><span class="line">　　if [ -z $USER_IP ]</span><br><span class="line">　　then</span><br><span class="line">　　USER_IP=`hostname`</span><br><span class="line">　　fi</span><br><span class="line">　　if [ ! -d $HISTDIR ]</span><br><span class="line">　　then</span><br><span class="line">　　mkdir -p $HISTDIR</span><br><span class="line">　　chmod 777 $HISTDIR</span><br><span class="line">　　fi</span><br><span class="line">　　if [ ! -d $HISTDIR/$&#123;LOGNAME&#125; ]</span><br><span class="line">　　then</span><br><span class="line">　　mkdir -p $HISTDIR/$&#123;LOGNAME&#125;</span><br><span class="line">    chmod 300 $HISTDIR/$&#123;LOGNAME&#125;</span><br><span class="line">　　fi</span><br><span class="line">　　export HISTSIZE=4096</span><br><span class="line">　　DT=`date +%Y%m%d_%H%M%S`</span><br><span class="line">　　export HISTFILE=&quot;$HISTDIR/$&#123;LOGNAME&#125;/$&#123;USER_IP&#125;.hist.$DT&quot;</span><br><span class="line">　　chmod 600 $HISTDIR/$&#123;LOGNAME&#125;/*.hist* 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>　　得到的结果，永久保存，每个用户的命令记录分目录保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ls -l /var/log/.hist/root/</span><br><span class="line">　　-rw------- 1 root root 546 2006-05-26 10:00 218.82.245.54.hist.20060526_092458</span><br><span class="line">　　-rw------- 1 root root 243 2006-05-28 13:28 218.82.245.54.hist.20060528_114822</span><br><span class="line">　　-rw------- 1 root root 10 2006-05-28 12:18 218.82.245.54.hist.20060528_121605</span><br></pre></td></tr></table></figure>
+
+<p>　　查看命令记录
+　</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># export HISTFILE=/var/log/.hist/root/222.72.16.204.hist.20060608_152551</span><br><span class="line">　　# history</span><br><span class="line">　　1 [2006.06.24 13:22:51] vi /etc/profile</span><br><span class="line">　　2 [2006.06.24 13:23:25] cd /var/log/.hist</span><br><span class="line">　　3 [2006.06.24 13:23:26] ls -al</span><br><span class="line">　　4 [2006.06.24 13:23:30] cd sadmin</span><br><span class="line">　　5 [2006.06.24 13:23:31] ls -al</span><br><span class="line">　　6 [2006.06.24 13:24:22] more 58.35.169.51.hist.20060524_193219</span><br><span class="line">　　7 [2006.06.24 13:24:35] 222.72.16.204.hist.20060622_143133</span><br><span class="line">　　8 [2006.06.24 13:24:39] more 222.72.16.204.hist.20060622_143133</span><br><span class="line">　　9 [2006.06.24 13:24:51] hist -f 222.72.16.204.hist.20060622_143133</span><br><span class="line"> </span><br><span class="line"> 10 [2006.06.24 13:24:59] history -f 222.72.16.204.hist.20060622_143133</span><br><span class="line">　　11 [2006.06.24 13:25:12] history 222.72.16.204.hist.20060622_143133</span><br><span class="line">　　12 [2006.06.24 13:25:32] man histtory</span><br><span class="line">　　13 [2006.06.24 13:25:38] man history</span><br><span class="line">　　14 [2006.06.24 13:26:00] hist</span><br><span class="line">　　15 [2006.06.24 13:26:04] history</span><br><span class="line">　　16 [2006.06.24 13:26:16] ls</span><br><span class="line">　　17 [2006.06.24 13:26:39] export 222.72.16.204.hist.20060622_143133</span><br><span class="line">　　18 [2006.06.24 13:26:59] export HISTFILE=222.72.16.204.hist.20060608_152551</span><br><span class="line">　　19 [2006.06.24 13:27:07] history</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2017/10/24/%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88vim%E7%9A%84%E6%99%BA%E8%83%BD%E7%BC%A9%E8%BF%9B/" style="float: left;">
+        ← 如何取消vim的智能缩进
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/09/26/Linux%EF%BC%9Ahistory%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95%E6%93%8D%E4%BD%9C%E6%97%B6%E9%97%B4%E3%80%81%E6%93%8D%E4%BD%9C%E7%94%A8%E6%88%B7%E3%80%81%E6%93%8D%E4%BD%9CIP/">
+        history命令记录操作时间、操作用户、操作IP →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

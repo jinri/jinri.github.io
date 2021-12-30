@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>c++程序 引入etcd c++ API 编译安装步骤 | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2021-02-04T13:00:05.000Z" itemprop="datePublished">
+          2021-02-04
+      </time>
+    
+</span>
+                <h1>c++程序 引入etcd c++ API 编译安装步骤</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="etcd-cpp-api-is-a-C-API-for-etcd"><a href="#etcd-cpp-api-is-a-C-API-for-etcd" class="headerlink" title="etcd-cpp-api is a C++ API for etcd"></a>etcd-cpp-api is a C++ API for etcd</h3><p><strong>1、Build Boost Library</strong>：<a target="_blank" rel="noopener" href="https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html">https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd boost_1_61_0</span><br><span class="line">./bootstrap.sh --with-libraries=system,thread,locale,random,chrono,regex,filesystem</span><br><span class="line">./b2 install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>要求boost在1.54以上，cmake要求3.0以上 ,gcc在4.8 以上</p>
+<p>另外需要安装一些包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openssl-devel go</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>2、Build Casablanca</strong>: <a target="_blank" rel="noopener" href="https://github.com/Microsoft/cpprestsdk">https://github.com/Microsoft/cpprestsdk</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Microsoft/cpprestsdk.git</span><br><span class="line">cd casablanca/Release</span><br><span class="line">mkdir build.debug</span><br><span class="line">cd build.debug</span><br><span class="line">cmake3 .. -DCMAKE_BUILD_TYPE=Debug  #-DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=0</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">*g++ -std=c++11 my_file.cpp -o my_file -lboost_system -lcrypto -lssl -lcpprest</span><br><span class="line">./my_file*</span><br></pre></td></tr></table></figure>
+
+<p>因为cpprestsdk源码中中有些变量没有用到，会把警告当错误。 需要注释掉 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cpprestsdk-2.10.1/Release/CMakeLists.txt:14:</span><br><span class="line">#set(WERROR ON CACHE BOOL &quot;Treat Warnings as Errors.&quot;)</span><br></pre></td></tr></table></figure>
+<p>如若手动指定boost库版本，需要在<br>vi cpprestsdk-2.10.1/Release/cmake/cpprest_find_boost.cmake<br>在20行下面添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">20   elseif(UNIX)</span><br><span class="line">21     set(Boost_INCLUDE_DIR /usr/include/boost159)</span><br><span class="line">22     set(Boost_LIBRARIES /usr/lib64/boost159)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>3、Install grpc for C++</strong> ：<a target="_blank" rel="noopener" href="https://github.com/grpc/grpc.git">https://github.com/grpc/grpc.git</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd grpc</span><br><span class="line">git submodule update --init</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>安装路径在Makefile中配置prefix</p>
+<p><strong>4、Install Protobuf</strong> ：这里使用grpc下自带的第三方protobuf编译安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd grpc/third_party/protobuf/</span><br><span class="line"> ./autogen.sh</span><br><span class="line"> ./configure </span><br><span class="line"> make -j4</span><br><span class="line"> make install</span><br></pre></td></tr></table></figure>
+<p><strong>5、Install etcd</strong> ：</p>
+<p>源码安装（需要安装go环境）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/coreos/etcd.git</span><br><span class="line">cd etcd</span><br><span class="line">./build</span><br><span class="line">export ETCDCTL_API=3 #要使用etcd的3版本api需要导入环境变量</span><br></pre></td></tr></table></figure>
+
+<p>或者下载 <a target="_blank" rel="noopener" href="https://github.com/coreos/etcd/releases">https://github.com/coreos/etcd/releases</a> etcd-v3.3.8-linux-amd64的二进制包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip etcd-v3.3.8-linux-amd64</span><br><span class="line">export PATH=/home/gjf/etcd/etcd-v3.3.8-linux-amd64/etcd:$PATH</span><br><span class="line">export ETCDCTL_API=3</span><br></pre></td></tr></table></figure>
+
+<p><strong>6、etcd-cpp-apiv3 安装</strong>：<a target="_blank" rel="noopener" href="https://github.com/nokia/etcd-cpp-apiv3.git">https://github.com/nokia/etcd-cpp-apiv3.git</a></p>
+<p>在 etcd-cpp-apiv3-master中如果是自定义头文件或库安装路径的话需要对<br>CMakeLists.txt 进行更改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vi etcd-cpp-apiv3-master/CMakeLists.txt</span><br><span class="line"></span><br><span class="line">set(CPPREST_INCLUDE_DIR /home/jinri/tmp/include)</span><br><span class="line">set(CPPREST_LIB /home/jinri/tmp/lib)</span><br><span class="line">#find_library(CPPREST_LIB NAMES cpprest)</span><br><span class="line">#find_path(CPPREST_INCLUDE_DIR NAMES cpprest/http_client.h)</span><br><span class="line"></span><br><span class="line">set(Boost_INCLUDE_DIR /usr/include/boost159)</span><br><span class="line">set(Boost_LIBRARIES /usr/lib64/boost159)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi etcd-cpp-apiv3-master/src/CMakeLists.txt</span><br><span class="line"></span><br><span class="line">find_library(CPPREST_LIBRARY    cpprest    /home/jinri/tmp/lib)</span><br><span class="line">find_library(PROTOBUF_LIBRARY   protobuf   /home/jinri/tmp/lib)</span><br><span class="line">find_library(GRPC++_LIBRARY    grpc++     /home/jinri/tmp/lib)</span><br><span class="line">MESSAGE(STATUS &quot;Found third_lib: $&#123;CPPREST_LIBRARY&#125; $&#123;PROTOBUF_LIBRARY&#125; $&#123;GRPC++_LIBRARY&#125;&quot;)</span><br><span class="line">#target_link_libraries(etcd-cpp-api  boost_system ssl crypto cpprest protobuf grpc++)</span><br><span class="line">target_link_libraries(etcd-cpp-api $&#123;CPPREST_LIBRARY&#125; boost_system ssl crypto $&#123;PROTOBUF_LIBRARY&#125; $&#123;GRPC++_LIBRARY&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>etcd-cpp-apiv3-master/tst/CMakeLists.txt一行设置有问题<br>需改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_path(CATCH_INCLUDE_DIR NAMES catch.hpp ..)</span><br></pre></td></tr></table></figure>
+<p>把由第三步第四步生成protoc  grpc_cpp_plugin  二进制程序（在install后的bin中）拷贝到proto目录，执行相应的命令生成protoc的接口文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd etcd-cpp-apiv3-master/proto</span><br><span class="line">./protoc -I . --cpp_out=. ./*.proto</span><br><span class="line">./protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=./grpc_cpp_plugin ./rpc.proto</span><br></pre></td></tr></table></figure>
+<p>编译安装最终 libetcd-cpp-api.so Client.hpp  Response.hpp  SyncClient.hpp  Value.hpp  Watcher.hpp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd etcd-cpp-apiv3-master</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake3 ..</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+
+<p>注意事项：</p>
+<p>1、grpc需使用git clone下来的master版本，而且还需要下载子模块</p>
+<p>2、个别模块中的CMakeLists.txt需要更改，测试用例个别有问题</p>
+<p>3、etcd v3的c++ client实现使用的是<a target="_blank" rel="noopener" href="https://github.com/nokia/etcd-cpp-apiv3%E4%B8%8A%E7%9A%84%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%85%B6%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD%E6%9C%89%E9%99%90%E4%B8%94%E4%B8%8D%E7%A8%B3%E5%AE%9A%EF%BC%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%81%E8%AE%A2%E9%98%85%E5%8A%9F%E8%83%BD%E9%83%BD%E6%9C%89%EF%BC%8C%E6%9B%B4%E6%96%B0%E7%A7%9F%E7%BA%A6%EF%BC%88%E4%BF%9D%E6%B4%BB%EF%BC%89%E3%80%81%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E7%AD%89%E9%83%BD%E6%B2%A1%E5%AE%9E%E7%8E%B0%E3%80%82">https://github.com/nokia/etcd-cpp-apiv3上的开源代码，其实现的功能有限且不稳定，增删改查、订阅功能都有，更新租约（保活）、事务操作等都没实现。</a></p>
+<p>4、开源client代码中订阅功能会在grpc通信write阶段发生coredump，参考了<a target="_blank" rel="noopener" href="https://github.com/nokia/etcd-cpp-apiv3/issues/5%E8%BF%9B%E8%A1%8C%E8%A7%A3%E5%86%B3%EF%BC%8C%E4%BD%86%E6%B2%A1%E8%A7%A3%E5%86%B3%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0%EF%BC%8C%E9%9C%80%E8%A6%81%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%A0%94%E7%A9%B6grpc%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E3%80%82">https://github.com/nokia/etcd-cpp-apiv3/issues/5进行解决，但没解决根本原因，需要进一步研究grpc调用过程。</a></p>
+<p>5、thrift 中协议有些字段与protobuf 中的字段冲突，引发难以查找的错误。 如文件中的version字段</p>
+<p>6 还有就是cpprest中concurrency  与apache中apache::thrift::concurrency命名冲突 ，在cpprest前加上pplx域名空间</p>
+<p>6、用c++11 版本编译，std::shared_ptr 与boost::shared_ptr 冲突，后改为用boost::shared——ptr ，本来打算用std::shared_ptr ,单如此的话还有要更改一些第三方问文件，且会与以前版本不兼容</p>
+<p>需要更改的头文件 cpprest中出现concurrency的，/usr/include/thrift/config.h中的version或者/usr/local/include/proto/rpc.proto 中version改名字<br>monitor中所有的shared_ptr 都加上boost命名空间前缀</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2021/12/30/hello-world/" style="float: left;">
+        ← Hello World
+    </a>
+    
+    
+    <a class="pull-right" href="/2021/02/04/etcd%20%E5%8F%AF%E8%A1%8C%E6%80%A7%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/">
+        etcd 可行性分析报告 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

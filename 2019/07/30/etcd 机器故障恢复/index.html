@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>etcd 机器故障恢复 | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-07-30T13:00:05.000Z" itemprop="datePublished">
+          2019-07-30
+      </time>
+    
+</span>
+                <h1>etcd 机器故障恢复</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="etcd-机器故障恢复"><a href="#etcd-机器故障恢复" class="headerlink" title="etcd 机器故障恢复"></a>etcd 机器故障恢复</h3><p><em>场景：如果一台etcd的机器挂掉时，需要新增一台etcd的机器时</em></p>
+<p>以前的集群：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ETCDCTL_API=3  etcdctl member list --endpoints=ip1:12379</span><br><span class="line">50a54bbf6cce9b8a, started, infra1, http://ip1:12380, http://ip1:12379</span><br><span class="line">746056696c46311f, started, infra2, http://1ip2:12380, http://1ip2:12379</span><br><span class="line">e800fc084ec7c5ef, started, infra3, http://ip3:12380, http://ip3:12379</span><br></pre></td></tr></table></figure>
+
+
+
+<p>假如ip1挂掉了，这时候新加一台机器 ip4</p>
+<p>1、endpoints 指定一台正常节点，修改问题节点id至新的ip，只修改12380端口即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ETCDCTL_API=3  etcdctl --endpoints=1ip2:12379   member update 50a54bbf6cce9b8a  --peer-urls=&quot;http://ip4:12380&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>2、因为是静态配置，修改另外两台etcd机器上etcd_install2.sh 脚本，把原来的ip1的ip替换为ip4的ip</p>
+<p>重新启动另外两台上的etcd。</p>
+<p>3、启动新节点上的etcd，注意要把etcd_install2.sh –initial-cluster-state new   new 改为existing</p>
+<p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ETCDCTL_API=3  etcdctl member list --endpoints=1ip2:12379</span><br><span class="line">50a54bbf6cce9b8a, started, infra1, http://ip4:12380, http://ip4:12379</span><br><span class="line">746056696c46311f, started, infra2, http://1ip2:12380, http://1ip2:12379</span><br><span class="line">e800fc084ec7c5ef, started, infra3, http://ip3:12380, http://ip3:12379</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ ETCDCTL_API=3  etcdctl endpoint health  --endpoints=ip4:12379</span><br><span class="line">ip4:12379 is healthy: successfully committed proposal: took = 1.836639ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>新启动的节点会同步另外两台上的数据</p>
+<p>4 启动scan_monitor，域名切换</p>
+<p>后来又尝试一种方式<br>可以先删除节点再添加节点，这样其余两台etcd不用重启</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ETCDCTL_API=3  etcdctl --endpoints=ip1:12379   member remove 50a54bbf6cce9b8a  </span><br><span class="line"></span><br><span class="line">ETCDCTL_API=3  etcdctl --endpoints=ip1:12379   member add infra1  --peer-urls=&quot;http://ip4:12380&quot;</span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/02/20/swarm%20cannot%20remove%20network%20%20%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95/" style="float: left;">
+        ← swarm cannot remove network  解决记录
+    </a>
+    
+    
+    <a class="pull-right" href="/2019/03/20/etcd%E5%9C%A8%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%20mvcc%20database%20space%20exceeded%20%E6%8A%A5%E9%94%99/">
+        mvcc database space exceeded 报错 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

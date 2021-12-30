@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>互联网安全防御之WAF (Web应用防火墙) 实现方案分享（转） | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-06-02T14:00:10.000Z" itemprop="datePublished">
+          2017-06-02
+      </time>
+    
+</span>
+                <h1>互联网安全防御之WAF (Web应用防火墙) 实现方案分享（转）</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>因所在公司跟该文章所介绍waf很像，因此转下以做记录</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwOTc3NzMwMQ==&mid=403431240&idx=2&sn=97dee6f8554677f529475bb49b201915#rd">互联网安全防御之WAF (Web应用防火墙) 实现方案分享</a></p>
+<p>WAF简介</p>
+<p>WAF，即Web Application Firewall（Web应用防火墙），是一种针对Web应用层恶意请求的访问控制措施，是立体防御体系的组成部分和一种辅助性防御手段。</p>
+<p>目前WAF的产品形态主要有：</p>
+<p>(1)硬件产品</p>
+<p>硬件WAF串行或旁路部署在网络上，通过Web界面进行管理和规则配置，价格较高，但部署方便，运维管理比较省心。</p>
+<p>(2)纯软件产品</p>
+<p>软件WAF以ModSecurity、Naxsi等免费开源软件为代表，部署在每一台Web服务器上，需要网络安全人员熟悉其配置规则，但服务器数量多了之后，这种单机模式安装的软件，维护管理很快就会变得不太方便，因为不同的服务器可能使用不同的规则。</p>
+<p>(3)云WAF产品</p>
+<p>以各类云加速+CDN类产品为代表，如国外的CloudFlare、国内的各种云加速等，对用户隐藏真实服务器地址，云WAF作为反向代理执行安全控制，是用户浏览器和真实服务器之间的中间人。应该说，云WAF是一种比较可行的模式，在商业上已有较多成功案例。但对于流量比较大、服务器比较多的大中型企业、或者涉及商业秘密等场景，可能就不太合适了。</p>
+<p>(4)自研WAF产品</p>
+<p>如果上述几种WAF无法满足业务的需求，则需要考虑自己开发定制WAF了。</p>
+<p>WAF实现方案</p>
+<p>笔者所在的公司，流量巨大、服务器很多，前面几种方案都不太适用。最终，我们决定自己开发WAF，主要需求有：</p>
+<p>(1) 能够通过服务器（云端）统一配置和下发策略；</p>
+<p>(2) 能够自动上报拦截日志；</p>
+<p>(3) 拦截黑客入侵行为，包括但不限于：SQL注入、跨站脚本、路径操纵、上传/利用网页木马、CC攻击等；</p>
+<p>(4) 规则要少，允许漏报，但不能误报。</p>
+<p>关于第4点，我们一开始就将WAF定位为辅助性防御设施，根本性的防御措施还是放在安全流程、安全规范的落地和推行上。</p>
+<p>我们的服务器操作系统统一采用Linux，Web服务器统一采用Nginx，这就降低了开发的难度，不用适配其它各种操作系统和Web服务器版本。</p>
+<p>上图是我们在借鉴业界多款WAF架构的基础上，在公司实施落地的WAF方案。</p>
+<p>安全模块（WAF Agent）执行实际的拦截动作，它基于ngx_lua开发，执行访问控制，嵌入Web服务器Nginx当中，如果用户提交的URL或某一项参数匹配上拦截规则，则直接拦截并将拦截日志报告给WAF Center，不再传递给应用服务器。自动连续记录黑客攻击行为 + 改进完善：黑客在入侵尝试时一般会至少触发多条规则，只要触发一次，就连续记录其随后一段指定时间内的所有访问请求并报告给WAF Center，可供人工分析改进。</p>
+<p>WAF Center即WAF的集中管理中心，主要功能有两点：</p>
+<p>（1）规则库，设立规则库更新接口，用于防御规则更新；</p>
+<p>（2）日志库，设立日志库，接收各WAF Agent上报过来的拦截日志以及可疑的访问日志。</p>
+<p>WAF Center采用Web化界面进行管理，将入侵情况变得可视化起来：以前不知道黑客攻击的情况（因为没有数据），WAF上线后，已部署Agent的应用可直观看到攻击的情况；</p>
+<p>可用性方面，WAF Center如果宕机，不影响安全模块继续按照之前获取的规则进行服务。</p>
+<p>WAF的局限性</p>
+<p>无论是哪一种WAF，它的定位就决定了只能是一款辅助性安全防御产品，无法从根本上解决产品自身存在的安全缺陷。考虑到安全与效率，WAF也不可能去拦截所有的入侵尝试，毕竟绕过WAF的奇技淫巧还是非常之多的。</p>
+<p>根本性的防御措施还是需要放在安全开发流程、安全规范的落地和推行上面。</p>
+<p>在众多的安全防御产品中，有的产品和方案需要花很多钱，但是收益却并不怎么明显。而WAF，笔者认为它性价比超高，虽然治标不治本，但对于提高攻击成本、降低入侵概率还是很有帮助的。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2017/07/02/iptables%E8%AF%A6%E8%A7%A3%EF%BC%88%E8%BD%AC%EF%BC%89/" style="float: left;">
+        ← iptables详解（转）
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/05/26/Ubuntu%20%E5%91%BD%E4%BB%A4%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/">
+        Ubuntu 命令 安装与卸载 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

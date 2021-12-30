@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>docker swarm mode 使用 | callmev</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="callmev">
+    <meta name="author" content="V">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="callmev" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="http://www.callmev.cn" target="_BLANK" class="animsition-link">主页</a></li>
+                    
+                        <li><a href="https://github.com/jinri" target="_BLANK" class="animsition-link">github</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/debug/" class="animsition-link">debug<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/docker/" class="animsition-link">docker<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/etcd/" class="animsition-link">etcd<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/iptables/" class="animsition-link">iptables<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(8)</small></a></li>
+				    
+				    <li><a href="/categories/locus/" class="animsition-link">locus<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/swarm/" class="animsition-link">swarm<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/ubuntu/" class="animsition-link">ubuntu<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/vim/" class="animsition-link">vim<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/waf/" class="animsition-link">waf<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/windows/" class="animsition-link">windows<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/" class="animsition-link">V2EX</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://segmentfault.com/" class="animsition-link">SegmentFault</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.infoq.com/" class="animsition-link">InfoQ</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.oschina.net/" class="animsition-link">开源中国</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io/" class="animsition-link">Linux tools</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" class="animsition-link">msdn 我告诉你</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/" class="animsition-link">开源镜像</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://www.freebuf.com/" class="animsition-link">Freebuf</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.jpg" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">callmev</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-02-21T13:00:05.000Z" itemprop="datePublished">
+          2020-02-21
+      </time>
+    
+</span>
+                <h1>docker swarm mode 使用</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>docker swarm mode 需要docker版本高于1.12</p>
+<p>###管理集群命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">docker swarm </span><br><span class="line">    # 初始化一个swarm</span><br><span class="line">    - docker swarm init</span><br><span class="line">    # 指定初始化ip地址节点</span><br><span class="line">    - docker swarm init --advertise-addr 管理端IP地址</span><br><span class="line">    # 去除本地之外的所有管理器身份</span><br><span class="line">    - docker swarm init --force-new-cluster</span><br><span class="line">    # 将节点加入swarm集群，两种加入模式manager与worker</span><br><span class="line">    - docker swarm join</span><br><span class="line">    # 工作节点加入管理节点需要通过join-token认证</span><br><span class="line">    - docker swarm join-token</span><br><span class="line">    # 重新获取docker获取初始化命令</span><br><span class="line">    - docker swarm join-token worker</span><br><span class="line">    # 离开swarm</span><br><span class="line">    - docker swarm leave</span><br><span class="line">    # 对swarm集群更新配置</span><br><span class="line">    - docker swarm update</span><br></pre></td></tr></table></figure>
+<h3 id="管理swarm节点"><a href="#管理swarm节点" class="headerlink" title="管理swarm节点"></a>管理swarm节点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">docker node</span><br><span class="line">    # 查看集群中的节点</span><br><span class="line">    - docker node ls</span><br><span class="line">    # 将manager角色降级为worker</span><br><span class="line">    - docker node demote 主机名</span><br><span class="line">    # 将worker角色升级为manager</span><br><span class="line">    - docker node promote 主机名</span><br><span class="line">    # 查看节点的详细信息，默认json格式</span><br><span class="line">    - docker node inspect 主机名</span><br><span class="line">    # 查看节点信息平铺格式</span><br><span class="line">    - docker node inspect --pretty 主机名</span><br><span class="line">    # 查看运行的一个或多个及节点任务数，默认当前节点</span><br><span class="line">    - docker node ps</span><br><span class="line">    # 从swarm中删除一个节点</span><br><span class="line">    - docker node rm 主机名</span><br><span class="line">    # 更新一个节点</span><br><span class="line">    - docker node update</span><br><span class="line">    #对节点设置状态（“active”正常|“pause”暂停|“drain”排除自身work任务）</span><br><span class="line">    - docker node update --availability</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"># 服务管理</span><br><span class="line">docker service</span><br><span class="line">    # 创建一个服务</span><br><span class="line">    - docker service create</span><br><span class="line">    # 创建的副本数</span><br><span class="line">    - docker service create --replicas 副本数</span><br><span class="line">    # 指定容器名称</span><br><span class="line">    - docker service create --name 名字</span><br><span class="line">    # 每次容器与容器之间的更新时间间隔。</span><br><span class="line">    - docker service create --update-delay s秒</span><br><span class="line">    # 更新时同时并行更新数量，默认1</span><br><span class="line">    - docker service create --update-parallelism 个数</span><br><span class="line">    # 任务容器更新失败时的模式，（“pause”停止|”continue“继续），默认pause。</span><br><span class="line">    - docker service create --update-failure-action 类型</span><br><span class="line">    # 每次容器与容器之间的回滚时间间隔。</span><br><span class="line">    - docker service create --rollback-monitor 20s</span><br><span class="line">    # 回滚故障率如果小于百分比允许运行</span><br><span class="line">    - docker service create --rollback-max-failure-ratio .数值（列“.2”为%20）</span><br><span class="line">    # 添加网络</span><br><span class="line">    - docker service create --network 网络名</span><br><span class="line">    # 创建volume类型数据卷</span><br><span class="line">    - docker service create --mount type=volume,src=volume名称,dst=容器目录</span><br><span class="line">    # 创建bind读写目录挂载</span><br><span class="line">    - docker service create --mount type=bind,src=宿主目录,dst=容器目录</span><br><span class="line">    # 创建bind只读目录挂载</span><br><span class="line">    - docker service create --mount type=bind,src=宿主目录,dst=容器目录,readonly</span><br><span class="line">    # 创建dnsrr负载均衡模式</span><br><span class="line">    - docker service create --endpoint-mode dnsrr 服务名</span><br><span class="line">    # 创建docker配置文件到容器本地目录</span><br><span class="line">    - docker service create --config source=docker配置文件,target=配置文件路径</span><br><span class="line">    # 创建添加端口</span><br><span class="line">    - docker service create --publish 暴露端口:容器端口 服务名</span><br><span class="line">    # 查看服务详细信息，默认json格式</span><br><span class="line">    - docker service inspect</span><br><span class="line">    # 查看服务信息平铺形式</span><br><span class="line">    - docker service inspect --pretty 服务名</span><br><span class="line">    # 查看服务内输出</span><br><span class="line">    - docker service logs</span><br><span class="line">    # 列出服务</span><br><span class="line">    - docker service ls</span><br><span class="line">    # 列出服务任务信息</span><br><span class="line">    - docker service ps　　　　</span><br><span class="line">    # 查看服务启动信息</span><br><span class="line">    - docker service ps 服务名</span><br><span class="line">    # 过滤只运行的任务信息</span><br><span class="line">    - docker service ps -f &quot;desired-state=running&quot; 服务名</span><br><span class="line">    # 删除服务</span><br><span class="line">    - docker service rm</span><br><span class="line">    # 缩容扩容服务</span><br><span class="line">    - docker service scale</span><br><span class="line">    # 扩展服务容器副本数量</span><br><span class="line">    - docker service scale 服务名=副本数</span><br><span class="line">    # 更新服务相关配置</span><br><span class="line">    - docker service update</span><br><span class="line">    # 容器加入指令</span><br><span class="line">    - docker service update --args “指令” 服务名</span><br><span class="line">    # 更新服务容器版本</span><br><span class="line">    - docker service update --image 更新版本 服务名         </span><br><span class="line">    # 回滚服务容器版本</span><br><span class="line">    - docker service update --rollback 回滚服务名</span><br><span class="line">    # 添加容器网络</span><br><span class="line">    - docker service update --network-add 网络名 服务名</span><br><span class="line">    # 删除容器网络</span><br><span class="line">    - docker service update --network-rm 网络名 服务名</span><br><span class="line">    # 服务添加暴露端口</span><br><span class="line">    - docker service update --publish-add 暴露端口:容器端口 服务名</span><br><span class="line">    # 移除暴露端口</span><br><span class="line">    - docker service update --publish-rm 暴露端口:容器端口 服务名</span><br><span class="line">    # 修改负载均衡模式为dnsrr</span><br><span class="line">    - docker service update --endpoint-mode dnsrr 服务名</span><br><span class="line">    # 添加新的配置文件到容器内</span><br><span class="line">    - docker service update --config-add 配置文件名称，target=/../容器内配置文件名 服务名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 管理配置文件</span><br><span class="line">docker config</span><br><span class="line">    # 查看已创建配置文件</span><br><span class="line">    - docker config ls</span><br><span class="line">    # 将已有配置文件添加到docker配置文件中</span><br><span class="line">    - docker config create docker 配置文件名 本地配置文件</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    ---更新配置文件----</span><br><span class="line"></span><br><span class="line"># 1创建配置文件</span><br><span class="line">docker config create nginx2_config nginx2.conf </span><br><span class="line"># 2删除旧配置文件</span><br><span class="line">docker service update --config-rm ce_nginx_config 服务名</span><br><span class="line"># 3添加新配置文件到服务</span><br><span class="line">ocker service update --config-add src=nginx2_config,target=/etc/nginx/nginx.conf ce_nginx</span><br><span class="line"></span><br><span class="line"># 删除配置文件</span><br><span class="line">- docker service update --config-rm 配置文件名称 服务名</span><br><span class="line"># 强制重启服务</span><br><span class="line">- docker service update --force 服务名</span><br></pre></td></tr></table></figure>
+
+<p>以下是一些常用的指令例子：</p>
+<p>查看集群节点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@swarm_33 jinri]# docker node ls</span><br><span class="line">ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION</span><br><span class="line">ztslcnlhxsqez9kmxfarxszjt *   swarm_33            Ready               Active              Reachable           18.06.1-ce</span><br><span class="line">x2xdwyma2mdl77nlev7d01uc2     swarm_34            Ready               Active              Leader              18.06.1-ce</span><br><span class="line">w5efldfvjutkayqrgg0v9b8y2     swarm_44            Ready               Active                                  18.06.1-ce</span><br><span class="line">p6p2rx3bozkgvg7mkmxbu6ct0     swarm_47            Ready               Active                                  18.06.1-ce</span><br><span class="line">hfxz7ezn855cytcibql0acoym     swarm_60            Ready               Active                                  18.06.1-ce</span><br></pre></td></tr></table></figure>
+
+<p>创建tkl 服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@swarm_33 jinri]# docker service create --replicas 5 -p 9235:9234 --name tkl jinri.github.io/jinri/tkl:1.2</span><br><span class="line">image jinri.github.io/jinri/tkl:1.2 could not be accessed on a registry to record</span><br><span class="line">its digest. Each node will access jinri.github.io/jinri/tkl:1.2 independently,</span><br><span class="line">possibly leading to different nodes running different</span><br><span class="line">versions of the image.</span><br><span class="line"></span><br><span class="line">x256zxz6ifu1g61l9mw4uvqix</span><br><span class="line">overall progress: 5 out of 5 tasks </span><br><span class="line">1/5: running   [==================================================&gt;] </span><br><span class="line">2/5: running   [==================================================&gt;] </span><br><span class="line">3/5: running   [==================================================&gt;] </span><br><span class="line">4/5: running   [==================================================&gt;] </span><br><span class="line">5/5: running   [==================================================&gt;] </span><br><span class="line">verify: Service converged </span><br></pre></td></tr></table></figure>
+<p>查看服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@swarm_33 jinri]# docker service ls</span><br><span class="line">ID                  NAME                  MODE                REPLICAS            IMAGE                                          PORTS</span><br><span class="line">x256zxz6ifu1        tkl                 replicated          5/5                 jinri.github.io/jinri/tkl:1.2                   *:9235-&gt;9234/tcp</span><br><span class="line">up28njylsn46        store1                replicated          1/1                 jinri.github.io/jinri/tkl:1.2                   *:9236-&gt;9234/tcp</span><br></pre></td></tr></table></figure>
+
+<p>查看服务进程信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@swarm_33 jinri]#  docker service ps tkl </span><br><span class="line">ID                  NAME                IMAGE                          NODE                DESIRED STATE       CURRENT STATE          ERROR               PORTS</span><br><span class="line">wxyh8c43jiu0        tkl.1             jinri.github.io/jinri/tkl:1.2   swarm_47            Running             Running 25 hours ago                       </span><br><span class="line">qz4jmu5ampsy        tkl.2             jinri.github.io/jinri/tkl:1.2   swarm_60            Running             Running 25 hours ago                       </span><br><span class="line">6ai3v2h64oxm        tkl.3             jinri.github.io/jinri/tkl:1.2   swarm_44            Running             Running 25 hours ago                       </span><br><span class="line">qbgglqvcwj32        tkl.4             jinri.github.io/jinri/tkl:1.2   swarm_33            Running             Running 25 hours ago                       </span><br><span class="line">gyx747gc9nkv        tkl.5             jinri.github.io/jinri/tkl:1.2   swarm_34            Running             Running 25 hours ago  </span><br></pre></td></tr></table></figure>
+<p>查看服务日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@swarm_33 jinri]# docker service logs tkl</span><br><span class="line">tkl.5.gyx747gc9nkv@swarm_34    | /usr/bin/supervisord -c /home/s/script/supervisord.conf</span><br><span class="line">tkl.1.wxyh8c43jiu0@swarm_47    | /usr/bin/supervisord -c /home/s/script/supervisord.conf</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | /usr/bin/supervisord -c /home/s/script/supervisord.conf</span><br><span class="line">tkl.1.wxyh8c43jiu0@swarm_47    | 2020-02-20 11:10:12,471 CRIT Supervisor running as root (no user in config file)</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:13,276 CRIT Supervisor running as root (no user in config file)</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:13,286 INFO supervisord started with pid 1</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:13,287 INFO spawned: &#x27;dconf&#x27; with pid 9</span><br><span class="line">tkl.5.gyx747gc9nkv@swarm_34    | 2020-02-20 11:10:13,266 CRIT Supervisor running as root (no user in config file)</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:13,289 INFO spawned: &#x27;tkl&#x27; with pid 10</span><br><span class="line">tkl.1.wxyh8c43jiu0@swarm_47    | 2020-02-20 11:10:12,482 INFO supervisord started with pid 1</span><br><span class="line">tkl.1.wxyh8c43jiu0@swarm_47    | 2020-02-20 11:10:12,483 INFO spawned: &#x27;dconf&#x27; with pid 9</span><br><span class="line">tkl.1.wxyh8c43jiu0@swarm_47    | 2020-02-20 11:10:12,485 INFO spawned: &#x27;tkl&#x27; with pid 10</span><br><span class="line">tkl.5.gyx747gc9nkv@swarm_34    | 2020-02-20 11:10:13,275 INFO supervisord started with pid 1</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:14,310 INFO success: dconf entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</span><br><span class="line">tkl.4.qbgglqvcwj32@swarm_33    | 2020-02-20 11:10:14,311 INFO success: tkl entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</span><br></pre></td></tr></table></figure>
+<p>使用docker-compose.yml部署</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[jinri@23v tkl]$ docker stack deploy -c docker-compose.yml tkl</span><br><span class="line">Ignoring unsupported options: restart</span><br><span class="line"></span><br><span class="line">Ignoring deprecated options:</span><br><span class="line"></span><br><span class="line">container_name: Setting the container name is not supported.</span><br><span class="line"></span><br><span class="line">expose: Exposing ports is unnecessary - services on the same network can access each other&#x27;s containers on any port.</span><br><span class="line"></span><br><span class="line">[jinri@23v tkl]$ docker service ls</span><br><span class="line">ID                  NAME                MODE                REPLICAS            IMAGE                          PORTS</span><br><span class="line">zgipim6rpxs3        tkl_tkl1        replicated          1/1                 jinri.github.io/jinri/tkl:1.2   *:9234-&gt;9234/tcp</span><br><span class="line">[jinri@23v tkl]$ docker stack ls</span><br><span class="line">NAME                SERVICES            ORCHESTRATOR</span><br><span class="line">tkl               1                   Swarm</span><br></pre></td></tr></table></figure>
+
+<p>创建overlay类型的网络</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver overlay tkl_overlay</span><br></pre></td></tr></table></figure>
+
+<p>创建带有本地卷挂载的服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker service create  --replicas  2  -p 9235:9234  --mount type=volume,src=tkl-vol,dst=/home/s/scanService/log/ --name tkl --network tkl_overlay  jinri.github.io/jinri/tkl:1.2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>创建global模式的部署</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker service create --mode global  -p 9235:9234  --name tkl --network tkl_overlay  jinri.github.io/jinri/tkl:1.2</span><br><span class="line"></span><br><span class="line">[jinri@swarm_34 ~]$ sudo docker service ps tkl</span><br><span class="line">ID                  NAME                              IMAGE                          NODE                DESIRED STATE       CURRENT STATE                ERROR               PORTS</span><br><span class="line">fe4z93a0qe2h        tkl.ztslcnlhxsqez9kmxfarxszjt   jinri.github.io/jinri/tkl:1.2   swarm_33            Running             Running about a minute ago                       </span><br><span class="line">jx7q47xhwuwr        tkl.x2xdwyma2mdl77nlev7d01uc2   jinri.github.io/jinri/tkl:1.2   swarm_34            Running             Running about a minute ago                       </span><br><span class="line">pcnm3ngp354k        tkl.w5efldfvjutkayqrgg0v9b8y2   jinri.github.io/jinri/tkl:1.2   swarm_44            Running             Running about a minute ago                       </span><br><span class="line">kz6o3cap0md9        tkl.p6p2rx3bozkgvg7mkmxbu6ct0   jinri.github.io/jinri/tkl:1.2   swarm_47            Running             Running about a minute ago                       </span><br><span class="line">utxyl5jgpv8x        tkl.hfxz7ezn855cytcibql0acoym   jinri.github.io/jinri/tkl:1.2   swarm_60            Running             Running about a minute ago</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/04/20/Linux%20%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%B1%82%E4%BA%A4%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86/" style="float: left;">
+        ← Linux 两个文件求交集、并集、差集
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/02/21/docker%20swarm%20%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/">
+        docker swarm 集群安装 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By V. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/jinri" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
