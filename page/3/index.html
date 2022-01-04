@@ -115,7 +115,7 @@
 				    
 				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
 				    
-				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
 				    
@@ -351,42 +351,6 @@ msdn 我告诉你: https://msdn.itell
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2018/03/01/技术报道及博客/">技术网站及博客</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-03-01T14:00:10.000Z" itemprop="datePublished">
-          2018-03-01
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        比较好的一些技术网站
-V2EX： https://www.v2ex.com/
-SegmentFault: https://segmentfault.com/
-InfoQ: https://www.infoq.com/
-开源中国： http://www.oschina.net/
-Linux tools: https://linuxtools-rst.readthedocs.io/
-msdn 我告诉你: https://msdn.itell
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/03/01/技术报道及博客/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
                     <h3><a href="/2018/02/07/读书清单/">读书清单</a></h3>
                     <span>
                         <span class="post-meta">
@@ -566,6 +530,50 @@ Expires、Last-Modified/If-Modified-Since和ETag/If-None-Match这些HTTP Headers
                     
                     <p class="pull-right readMore">
                         <a href="/2017/12/27/Nginx if 语法/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/12/12/Nginx 缓存问题/">Nginx 缓存问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-12-12T02:00:00.000Z" itemprop="datePublished">
+          2017-12-12
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
+[#p1 1 expires浏览器缓存不一致]
+[#p2 2 缓存不全]
+[#p3 3 缓存过分]
+[#p4 4 缓存目录过多]
+[#p5 5 删除缓存配置有误]
+[#p6 6 多余配置]
+
+1 expires浏览器缓存不一致nginx 的网站配置中
+1expires 10m;
+
+
+
+该配置影响浏览器缓存，主要影响Cache-Control Expires 这两个字段
+12345Cache-Control: max-age=600Co
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/12/12/Nginx 缓存问题/">Read More...</a>
                     </p>
                     
                 </div>

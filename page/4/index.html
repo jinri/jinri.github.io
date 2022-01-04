@@ -115,7 +115,7 @@
 				    
 				    <li><a href="/categories/nginx/" class="animsition-link">nginx<small>(11)</small></a></li>
 				    
-				    <li><a href="/categories/other/" class="animsition-link">other<small>(3)</small></a></li>
+				    <li><a href="/categories/other/" class="animsition-link">other<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/postgres/" class="animsition-link">postgres<small>(1)</small></a></li>
 				    
@@ -249,50 +249,6 @@
 
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/12/12/Nginx 缓存问题/">Nginx 缓存问题</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-12-12T02:00:00.000Z" itemprop="datePublished">
-          2017-12-12
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        
-[#p1 1 expires浏览器缓存不一致]
-[#p2 2 缓存不全]
-[#p3 3 缓存过分]
-[#p4 4 缓存目录过多]
-[#p5 5 删除缓存配置有误]
-[#p6 6 多余配置]
-
-1 expires浏览器缓存不一致nginx 的网站配置中
-1expires 10m;
-
-
-
-该配置影响浏览器缓存，主要影响Cache-Control Expires 这两个字段
-12345Cache-Control: max-age=600Co
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/12/12/Nginx 缓存问题/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -592,6 +548,46 @@ Windows的命令提示符下，键入命令1ipconfig /all
                     
                     <p class="pull-right readMore">
                         <a href="/2017/10/26/ubuntu12.04默认gcc4.6.3升级到gcc4.8/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/10/24/如何取消vim的智能缩进/">如何取消vim的智能缩进</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-10-24T14:00:10.000Z" itemprop="datePublished">
+          2017-10-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        vim的自动缩进是光标换到下一行后自动与上一行的缩进对齐，而智能缩进是换到下一行后光标在与上一行缩进对齐的情况下又往里缩进了一次，怎么取消它的智能缩进？
+
+解决方案：切换到paste模式。
+在粘贴数据之前，输入下面指定开启paste模式
+
+
+1:set paste
+粘贴完毕后，输入下面指定关闭paste模式
+1:set nopaste
+每次都需要输入很麻烦，那么也可以在.vimrc中加入下面内容：
+1set pastetoggle=&l
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/10/24/如何取消vim的智能缩进/">Read More...</a>
                     </p>
                     
                 </div>
