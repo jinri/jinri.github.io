@@ -6,7 +6,7 @@
   <link href="http://www.callmev.cn/atom.xml" rel="self"/>
   
   <link href="http://www.callmev.cn/"/>
-  <updated>2021-12-20T09:20:10.003Z</updated>
+  <updated>2021-12-30T08:46:13.294Z</updated>
   <id>http://www.callmev.cn/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.callmev.cn/2021/12/30/hello-world/"/>
-    <id>http://www.callmev.cn/2021/12/30/hello-world/</id>
-    <published>2021-12-30T09:26:31.934Z</published>
-    <updated>2021-12-20T09:20:10.003Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="article" scheme="http://www.callmev.cn/categories/article/"/>
-    
-    
-    <category term="tag1" scheme="http://www.callmev.cn/tags/tag1/"/>
-    
-  </entry>
   
   <entry>
     <title>c++程序 引入etcd c++ API 编译安装步骤</title>
@@ -460,6 +436,28 @@
       
       
     <summary type="html">&lt;h3 id=&quot;etcd-机器故障恢复&quot;&gt;&lt;a href=&quot;#etcd-机器故障恢复&quot; class=&quot;headerlink&quot; title=&quot;etcd 机器故障恢复&quot;&gt;&lt;/a&gt;etcd 机器故障恢复&lt;/h3&gt;&lt;p&gt;&lt;em&gt;场景：如果一台etcd的机器挂掉时，需要新增一台etcd的机</summary>
+      
+    
+    
+    
+    <category term="etcd" scheme="http://www.callmev.cn/categories/etcd/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mvcc database space exceeded 报错</title>
+    <link href="http://www.callmev.cn/2019/03/20/etcd%E5%9C%A8%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%20mvcc%20database%20space%20exceeded%20%E6%8A%A5%E9%94%99/"/>
+    <id>http://www.callmev.cn/2019/03/20/etcd%E5%9C%A8%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%20mvcc%20database%20space%20exceeded%20%E6%8A%A5%E9%94%99/</id>
+    <published>2019-03-20T13:00:05.000Z</published>
+    <updated>2021-12-30T09:16:24.457Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="etcd在运行过程中出现”mvcc-database-space-exceeded”报错问题"><a href="#etcd在运行过程中出现”mvcc-database-space-exceeded”报错问题" class="headerlink" title="etcd在运行过程中出现”mvcc: database space exceeded”报错问题"></a>etcd在运行过程中出现”mvcc: database space exceeded”报错问题</h3><p>1 、问题描述： 在新版etcd运行的过程中，日志中出现这种异常日志</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;mvcc: database space exceeded&quot;</span><br></pre></td></tr></table></figure><p>经查是因为etcd存储超限制造成的，超限的原因是因为 etcd 持续记录它的键空间的确切历史，每变更一次键值都会保留一份记录，以至于etcd的存储空间被不断消耗。具体可参考<a href="https://alexstocks.github.io/html/etcd.html">https://alexstocks.github.io/html/etcd.html</a>  4.4.1 MVCC介绍</p><p>2、原因分析：</p><ul><li>etcd服务未设置自动压缩参数（auto-compact）</li><li>etcd 默认不会自动 compact，需要设置启动参数，或者通过命令进行compact，如果变更频繁建议设置，否则会导致空间和内存的浪费以及错误。Etcd v3 的默认的 backend quota 2GB，如果不 compact，boltdb 文件大小超过这个限制后，就会报错：”Error: etcdserver: mvcc: database space exceeded”，导致数据无法写入</li></ul><p>etcd可通过存储空间的配额来控制键空间大小，，默认配置的大小是2G.<br>可在启动时通过参数 <strong>–quota-backend-bytes</strong> 来指定</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 设置非常小的 16MB 配额</span><br><span class="line">$ etcd --quota-backend-bytes=16777216</span><br></pre></td></tr></table></figure><p>以下是在42上查到的情况，可发现已经没有键空间了</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cloud@42 bin]$  ETCDCTL_API=3  etcdctl --write-out=table endpoint status  --endpoints=ip1:12379</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line">|      ENDPOINT       |        ID        | VERSION | DB SIZE | IS LEADER | RAFT TERM | RAFT INDEX |</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line">| ip1:12379 | 68c241a246b24e34 |  3.2.22 |  2.1 GB |     false |       342 |   17850109 |</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line">[cloud@42 bin]$  ETCDCTL_API=3  etcdctl alarm list  --endpoints=ip1:12379</span><br><span class="line">memberID:5517845181538471708 alarm:NOSPACE </span><br><span class="line">memberID:1531360066298200737 alarm:NOSPACE </span><br><span class="line">memberID:7548668090652970548 alarm:NOSPACE </span><br></pre></td></tr></table></figure><p>3、初步解决方法：因为 etcd 保持它的键空间的确切历史，这个历史应该定期压缩来避免性能下降和最终的存储空间枯竭。压缩键空间历史删除所有关于被废弃的在给定键空间修订版本之前的键的信息。这些key使用的空间随机变得可用来继续写入键空间。<br>后台手工可采用以下脚本压缩清理掉（集群内机器都要执行）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1 #!/bin/bash</span><br><span class="line">  2 IP=`ip a show dev eth0|grep -w inet|awk &#x27;&#123;print $2&#125;&#x27;|awk -F &#x27;/&#x27; &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">  3 #IP=127.0.0.1</span><br><span class="line">  4 PORT=12379</span><br><span class="line">  5 HOST=$IP:$PORT</span><br><span class="line">  6 </span><br><span class="line">  7 #使用API3</span><br><span class="line">  8 export ETCDCTL_API=3</span><br><span class="line">  9 # 查看告警信息，告警信息一般 memberID:8630161756594109333 alarm:NOSPACE</span><br><span class="line"> 10 etcdctl --endpoints=http://$&#123;HOST&#125; alarm list</span><br><span class="line"> 11 </span><br><span class="line"> 12 # 获取当前版本</span><br><span class="line"> 13 rev=$(etcdctl --endpoints=http://$&#123;HOST&#125; endpoint status --write-out=&quot;json&quot; | egrep -o &#x27;&quot;revision&quot;:[0-9]*&#x27; | egrep -o &#x27;[0-9].*&#x27;)</span><br><span class="line"> 14 # 压缩掉所有旧版本</span><br><span class="line"> 15 etcdctl --endpoints=http://$&#123;HOST&#125; compact $rev</span><br><span class="line"> 16 # 整理多余的空间</span><br><span class="line"> 17 etcdctl --endpoints=http://$&#123;HOST&#125; defrag</span><br><span class="line"> 18 sleep 2</span><br><span class="line"> 19</span><br><span class="line"> 20 # 取消告警信息</span><br><span class="line"> 21 etcdctl --endpoints=http://$&#123;HOST&#125; alarm disarm</span><br><span class="line"> 22 </span><br></pre></td></tr></table></figure><p><strong>最终方法</strong>: 清理后内存还是会不断增长，需要在启动时加入 <strong>–auto-compaction-retention=1</strong> 时间参数可以自行设定</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 保持一个小时的历史</span><br><span class="line">$ etcd --auto-compaction-retention=1</span><br></pre></td></tr></table></figure><p>详细可参考<br><a href="https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota">https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/maintenance.md#space-quota</a></p><p>线上etcd运行参数为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">etcd --name infra1 --data-dir=/home/s/var/etcd/infra --listen-client-urls http://ip1:12379 --advertise-client-urls http://ip1:12379 --listen-peer-urls http://ip1:12380 --initial-advertise-peer-urls http://ip1:12380 --initial-cluster-token etcd-cluster-1 --initial-cluster infra1=http://ip1:12380,infra2=http://ip2:12380,infra3=http://ip3:12380 --auto-compaction-retention=1 --initial-cluster-state new</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>该参数会自动每隔一个小时自动压缩键空间，配置后经观察etcd内存还是会增长，然后最终稳定，在42 43 44 上经过一天的运行后最终在默认配置2G内存的情况下稳定在七百多兆。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[cloud@42 bin]$  ETCDCTL_API=3  etcdctl --write-out=table endpoint status  --endpoints=ip1:12379</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line">|      ENDPOINT       |        ID        | VERSION | DB SIZE | IS LEADER | RAFT TERM | RAFT INDEX |</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line">| ip1:12379 | 68c241a246b24e34 |  3.2.22 |  757 MB |      true |       358 |   81169018 |</span><br><span class="line">+---------------------+------------------+---------+---------+-----------+-----------+------------+</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;etcd在运行过程中出现”mvcc-database-space-exceeded”报错问题&quot;&gt;&lt;a href=&quot;#etcd在运行过程中出现”mvcc-database-space-exceeded”报错问题&quot; class=&quot;headerlink&quot; title=&quot;</summary>
       
     
     

@@ -93,7 +93,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/article/" class="animsition-link">article<small>(5)</small></a></li>
+				    <li><a href="/categories/article/" class="animsition-link">article<small>(4)</small></a></li>
 				    
 				    <li><a href="/categories/c/" class="animsition-link">c++<small>(3)</small></a></li>
 				    
@@ -249,36 +249,6 @@
 
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2020/08/12/vim升级/">vim升级</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-08-12T13:00:05.000Z" itemprop="datePublished">
-          2020-08-12
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        123456rpm -Uvh http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpmrpm --import http://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7yum -y remove vim-minimal vim-common vim-enha
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2020/08/12/vim升级/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -572,6 +542,38 @@
                     
                     <p class="pull-right readMore">
                         <a href="/2019/07/30/etcd 机器故障恢复/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2019/03/20/etcd在运行过程中出现 mvcc database space exceeded 报错/">mvcc database space exceeded 报错</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2019-03-20T13:00:05.000Z" itemprop="datePublished">
+          2019-03-20
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        etcd在运行过程中出现”mvcc: database space exceeded”报错问题1 、问题描述： 在新版etcd运行的过程中，日志中出现这种异常日志
+1&quot;mvcc: database space exceeded&quot;
+经查是因为etcd存储超限制造成的，超限的原因是因为 etcd 持续记录它的键空间的确切历史，每变更一次键值都会保留一份记录，以至于etcd的存储空间被不断消耗。具体可参考https://a
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2019/03/20/etcd在运行过程中出现 mvcc database space exceeded 报错/">Read More...</a>
                     </p>
                     
                 </div>
