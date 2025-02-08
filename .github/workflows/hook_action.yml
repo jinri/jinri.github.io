@@ -1,0 +1,14 @@
+on: 
+  repository_dispatch:
+    types:
+      - webhook-1
+      - webhook-2
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Hello World
+      run: |
+        echo Hello World!
